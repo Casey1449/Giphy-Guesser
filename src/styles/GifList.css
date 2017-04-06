@@ -1,0 +1,7 @@
+.gif-list {
+  margin: 0;
+  padding: 0;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}

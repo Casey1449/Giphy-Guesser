@@ -1,0 +1,17 @@
+.gif-box {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border: 3px solid green;
+  background-color: lightgreen;
+}
+
+.gif-item {
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 10px 6px -6px #777;
+}

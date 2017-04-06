@@ -1,0 +1,25 @@
+footer {
+    display: flex;
+    border: 3px solid red;
+    background-color: pink;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    min-height: 50px;
+}
+
+footer h1 {
+  font-size: 1.7em;
+}
+
+@media (min-width: 576px){
+  footer h1 {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 992px){
+  footer {
+    height: 15vh;
+  }
+}
