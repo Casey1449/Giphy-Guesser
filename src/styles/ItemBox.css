@@ -10,6 +10,7 @@
 .gif-box {
   border: 3px solid green;
   background-color: lightgreen;
+  align-items: stretch;
 }
 
 .word-box {
@@ -18,7 +19,6 @@
 }
 
 .gif-item {
-  height: 100%;
   width: 100%;
   padding: 2px;
   background-color: white;
