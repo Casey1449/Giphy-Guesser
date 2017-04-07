@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/GifBox.css';
+import '../styles/ItemBox.css';
 
 export default () => {
   return (
-    <li className='gif-box'>
+    <li className='item-box gif-box'>
       <div className='gif-item'>
         <p>Gif goes here</p>
       </div>
