@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/WordBox.css';
+import '../styles/ItemBox.css';
 
 export default () => {
   return (
-    <li className='word-box'>
+    <li className='item-box word-box'>
       <div className='word-item'>
         <p>RandomWord</p>
       </div>

@@ -1,7 +1,14 @@
-.gif-list {
+.list {
   margin: 0;
   padding: 0;
-  flex: 2;
   display: flex;
   flex-direction: column;
+}
+
+.gif-list {
+  flex: 2.5;
+}
+
+.word-list {
+  flex: 1;
 }

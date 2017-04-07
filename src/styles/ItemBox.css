@@ -1,16 +1,31 @@
-.gif-box {
-  padding-left: 10px;
-  padding-right: 10px;
+.item-box {
+  padding: 5px;
   display: flex;
   list-style: none;
   justify-content: center;
   align-items: center;
   flex: 1;
+}
+
+.gif-box {
   border: 3px solid green;
   background-color: lightgreen;
 }
 
+.word-box {
+  border: 3px solid blue;
+  background-color: lightblue;
+}
+
 .gif-item {
+  height: 100%;
+  width: 100%;
+  padding: 2px;
+  background-color: white;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.word-item {
   padding: 10px;
   background-color: white;
   box-shadow: 0 10px 6px -6px #777;
