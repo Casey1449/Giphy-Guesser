@@ -24,7 +24,7 @@
   background-image: url(../images/pointer.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  /*background-position: center;*/
+  background-position: center;
 }
 
 .word-arrow p {
