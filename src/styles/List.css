@@ -1,7 +1,9 @@
 .list {
-  margin: 0;
-  padding: 0;
   display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 5px 10px;
+  border: none;
   flex-direction: column;
 }
 
@@ -10,5 +12,34 @@
 }
 
 .word-list {
+  padding-right: 0px;
+  justify-content: space-around;
   flex: 1;
 }
+
+@media (min-width: 770px){
+  .list {
+    flex-direction: row;
+  }
+
+  .word-list {
+    padding-right: 10px;
+    flex: .5;
+  }
+}
+
+/*
+
+//Extra small devices (portrait phones, less than 576px)
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 770 and up)
+@media (min-width: 770px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }*/
