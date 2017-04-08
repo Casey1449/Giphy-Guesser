@@ -1,4 +1,5 @@
 .list {
+  color: white;
   display: flex;
   list-style: none;
   margin: 0;
