@@ -21,9 +21,10 @@
   justify-content: center;
   width: 100%;
   height: 75px;
+  background-color: white;
   background: url(../images/pointer.svg);
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: contain;
   background-position: center;
 }
 
@@ -49,9 +50,8 @@
   .word-arrow {
     box-sizing: border-box;
     background: url(../images/pointer2.svg);
-    background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: auto;
+    background-size: contain;
     align-self: stretch;
   }
 
