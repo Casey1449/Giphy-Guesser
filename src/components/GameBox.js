@@ -6,7 +6,7 @@ import '../styles/GameBox.css';
 export default () => {
   return (
     <div className='game-box'>
-      <WordList />
+      <WordList axis={'xy'} />
       <GifList />
     </div>
   );
