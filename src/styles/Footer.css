@@ -1,21 +1,26 @@
 footer {
     display: flex;
-    border: 3px solid red;
-    background-color: pink;
-    justify-content: center;
+    background-color: #121212;
+    justify-content: space-around;
+    padding: 5px 15px;
     align-items: center;
     height: 12vh;
     min-height: 50px;
 }
 
 footer h1 {
-  font-size: 1.7em;
+  color: #0f9;
+  font-size: 2em;
 }
 
-@media (min-width: 576px){
-  footer h1 {
-    font-size: 2em;
-  }
+footer button {
+  font-size: 1.5em;
+  font-weight: 900;
+  height: 80%;
+  width: 150px;
+  border: none;
+  background: linear-gradient(to right top, #93f, #e646b6);
+  color: white;
 }
 
 @media (min-width: 992px){
