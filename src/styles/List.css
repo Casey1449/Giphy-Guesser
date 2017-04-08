@@ -3,13 +3,13 @@
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 5px 10px;
+  padding: 7px 12px;
   border: none;
   flex-direction: column;
 }
 
 .gif-list {
-  flex: 2.5;
+  flex: 2;
 }
 
 .word-list {
@@ -24,7 +24,10 @@
   }
 
   .word-list {
+    padding-bottom: 0;
+    padding-top: 15px;
     padding-right: 10px;
+    flex: .5
   }
 }
 

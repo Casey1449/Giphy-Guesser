@@ -7,7 +7,7 @@ export default SortableContainer((props) => {
 
   return(
     <ul className='list word-list'>
-      <WordItem word={'ReallyLongWord'} index={1}/>
+      <WordItem word={'association'} index={1}/>
       <WordItem word={'ox'} index={2}/>
       <WordItem word={'ox'} index={3}/>
       <WordItem word={'Medium'} index={4}/>

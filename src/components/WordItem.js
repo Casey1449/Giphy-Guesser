@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/App.css';
 import '../styles/ListItems.css';
 import { SortableElement } from 'react-sortable-hoc';
 
