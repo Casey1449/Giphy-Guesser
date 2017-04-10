@@ -1,9 +1,3 @@
-export const submitAnswers = () => {
-  return {
-    type: 'SUBMIT_ANSWERS'
-  };
-};
-
 export const updateScore = score => {
   return {
     type: 'UPDATE_SCORE',

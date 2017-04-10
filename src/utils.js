@@ -12,19 +12,23 @@ export const shuffle = array => {
     return arr;
 };
 
-export const createTagObjects = correctAnswers => {
-  return correctAnswers.map((w, i) => {
-    return {
-      word: w,
-      correctIndex: i,
-      isInCorrectPosition: true
-    };
-  });
-};
+export const evaluateTagPositions = tags => (
+  tags.map((t, i) => {
+    t.isInCorrectPosition = (t.correctIndex === i);
+    return t;
+  })
+);
 
-export const evaluateTagPositions = tags => {
-  return tags.map((t, i) => {
-          t.isInCorrectPosition = (t.correctIndex === i);
-          return t;
-        });
-};
+export const createNewTags = correctAnswers => (
+  evaluateTagPositions(
+    shuffle(
+      correctAnswers.map((w, i) => {
+        return {
+          word: w,
+          correctIndex: i,
+          isInCorrectPosition: true
+        };
+      })
+    )
+  )
+);
