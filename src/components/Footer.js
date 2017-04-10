@@ -9,7 +9,7 @@ const Footer = (props) => {
 
   return (
     <footer>
-      <h1>75</h1>
+      <h1>{props.score || 0}</h1>
       <button
         onClick={ () => props.submitClick(tallyScore()) }
       >

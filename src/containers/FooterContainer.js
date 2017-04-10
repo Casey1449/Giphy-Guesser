@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { updateScore, startNextRound } from '../actions/index.js';
 import randomWords from 'random-words';
-import { shuffle, createNewTags } from '../utils.js';
+import { createNewTags } from '../utils.js';
 
 const mapStateToProps = state => {
-  const { tags, answersSubmitted, correctAnswers } = state;
+  const { score, tags, answersSubmitted, correctAnswers } = state;
   return {
+    score,
     tags,
     answersSubmitted,
     correctAnswers
