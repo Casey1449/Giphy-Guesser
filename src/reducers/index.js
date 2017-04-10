@@ -3,9 +3,23 @@ import randomWords from 'random-words';
 import { evaluateTagPositions, createNewTags } from '../utils.js';
 import { arrayMove } from 'react-sortable-hoc';
 
+/*morestate:
+gifs: {
+  isFetching: bool,
+  didInvalidate?,
+  gifItems: [{}, {}, {}]
+}
+*/
+
 const initialWords = randomWords(4);
 
 const initialTags = createNewTags(initialWords);
+
+const initialGifs = {
+  isFetching: false,
+  // didInvalidate: false,
+  gifItems: []
+};
 
 const correctAnswers = (state = initialWords, action) =>
   action.type === 'START_NEXT_ROUND' ? action.newWords : state;
@@ -22,6 +36,29 @@ const tags = (state = initialTags, action) => {
       return state;
   }
 };
+
+const gifs = (state = initialGifs, action) => {
+  switch (action.type) {
+    // case INVALIDATE_ROUND:
+    //   return Object.assign({}, state, {
+    //     didInvalidate: true
+    //   })
+    case REQUEST_POSTS:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      })
+    case RECEIVE_POSTS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        items: action.posts,
+        lastUpdated: action.receivedAt
+      })
+    default:
+      return state
+  }
+}
 
 const score = (state = 0, action) =>
   action.type === 'UPDATE_SCORE' ? state + action.score : state;
