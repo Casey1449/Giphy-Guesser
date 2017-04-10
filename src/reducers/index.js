@@ -7,12 +7,8 @@ const initialWords = randomWords(4);
 
 const initialTags = createNewTags(initialWords);
 
-const correctAnswers = (state = initialWords, action) => {
-  if (action.type === 'START_NEXT_ROUND') {
-    return action.newWords;
-  }
-  return state;
-};
+const correctAnswers = (state = initialWords, action) =>
+  action.type === 'START_NEXT_ROUND' ? action.newWords : state;
 
 const tags = (state = initialTags, action) => {
   switch (action.type){
@@ -27,12 +23,8 @@ const tags = (state = initialTags, action) => {
   }
 };
 
-const score = (state = 0, action) => {
-  if (action.type === 'UPDATE_SCORE') {
-    return state + action.currentRoundScore;
-  }
-  return state;
-};
+const score = (state = 0, action) =>
+  action.type === 'UPDATE_SCORE' ? state + action.score : state;
 
 const answersSubmitted = (state = false, action) => {
   switch (action.type){

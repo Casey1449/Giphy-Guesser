@@ -18,9 +18,7 @@ const mapDispatchToProps = dispatch => {
         let newWords = randomWords(4);
         dispatch(startNextRound(newWords, createNewTags(newWords)));
       },
-    submitClick: (score) => {
-      dispatch(updateScore(score));
-    }
+    submitClick: score => dispatch(updateScore(score))
   };
 };
 
