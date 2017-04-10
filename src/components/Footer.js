@@ -2,19 +2,23 @@ import React from 'react';
 import '../styles/Footer.css';
 import FooterContainer from '../containers/FooterContainer';
 
-const Footer = (props) => {
+const Footer = ({score, tags, answersSubmitted, startClick, submitClick}) => {
 
   const tallyScore = () =>
-    (props.tags.filter(t => t.isInCorrectPosition).length) * 25;
+    (tags.filter(t => t.isInCorrectPosition).length) * 25;
 
   return (
     <footer>
-      <h1>{props.score || 0}</h1>
-      <button
-        onClick={ () => props.submitClick(tallyScore()) }
-      >
-        Submit!
-      </button>
+      { answersSubmitted ?
+          <button onClick={() => startClick()}>
+            Next Round ▸▸
+          </button>
+        :
+          <button onClick={ () => submitClick(tallyScore())}>
+            Submit!
+          </button>
+      }
+      <h1>{score || 0}</h1>
     </footer>
   );
 };
