@@ -7,7 +7,7 @@ const WordItem = SortableElement((props) =>
 
   <li className='list-item word-item'>
     <div className='word-arrow'>
-      <p>{props.word}</p>
+      <p>{props.value}</p>
     </div>
   </li>
 

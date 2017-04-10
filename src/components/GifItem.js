@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/ListItems.css';
 
-export default () => {
+export default ({word}) => {
   return (
     <li className='list-item gif-item'>
-      <p>Gif goes here</p>
+      <p style={{color: 'black'}}>{word}</p>
     </li>
   );
 };

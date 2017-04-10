@@ -1,5 +1,3 @@
-import randomWords from 'random-words';
-
 export const submitAnswers = () => {
   return {
     type: 'SUBMIT_ANSWERS'
@@ -21,9 +19,10 @@ export const startNextRound = (newWords, newTags) => {
   };
 };
 
-export const updateTags = (updatedTags) => {
+export const updateTags = (oldIndex, newIndex) => {
   return {
     type: 'UPDATE_TAGS',
-    updatedTags
+    oldIndex,
+    newIndex
   };
 };

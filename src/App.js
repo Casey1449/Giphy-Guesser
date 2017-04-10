@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import GameBox from './components/GameBox';
+import WordList from './components/WordList';
+import GifList from './components/GifList';
 import Footer from './components/Footer';
 import './styles/App.css';
 
@@ -9,7 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <GameBox />
+          <div className='game-box'>
+            <WordList axis={'xy'} />
+            <GifList />
+          </div>
         <Footer />
       </div>
     );

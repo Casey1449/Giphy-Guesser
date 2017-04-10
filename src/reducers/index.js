@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import randomWords from 'random-words';
 import { shuffle, evaluateTagPositions, createTagObjects } from '../utils.js';
+import { arrayMove } from 'react-sortable-hoc';
 
 const initialWords = randomWords(4);
 
@@ -20,7 +21,7 @@ const tags = (state = initialTags, action) => {
     case 'START_NEXT_ROUND':
       return action.newTags;
     case 'UPDATE_TAGS':
-      return action.updatedTags;
+      return arrayMove(state, action.oldIndex, action.newIndex);
     default:
       return state;
   }
