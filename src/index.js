@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import rootReducer from './reducers/index.js';
 import App from './App';
 import './index.css';
 
-ReactDOM.render(
+let store = createStore(rootReducer);
+
+console.log(store.getState());
+
+render(
   <App />,
   document.getElementById('root')
 );

@@ -12,7 +12,7 @@ export const shuffle = array => {
     return arr;
 };
 
-export const createTagObjects = (correctAnswers) => {
+export const createTagObjects = correctAnswers => {
   return correctAnswers.map((w, i) => {
     return {
       word: w,
@@ -22,7 +22,7 @@ export const createTagObjects = (correctAnswers) => {
   });
 };
 
-export const evaluateTagPositions = (tags) => {
+export const evaluateTagPositions = tags => {
   return tags.map((t, i) => {
           t.isInCorrectPosition = (t.correctIndex === i);
           return t;

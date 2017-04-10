@@ -1,20 +1,4 @@
-/*
-state: {
-  XXXcorrectAnswers: ['word1', 'word2', 'word3', 'word4'],
-  tags: [
-    {correctIndex, currentIndex, word: 'word1', correctPosition: bool },
-    {correctIndex, currentIndex, word: 'word2', correctPosition: bool },
-    {correctIndex, currentIndex, word: 'word3', correctPosition: bool },
-    {correctIndex, currentIndex, word: 'word4', correctPosition: bool },
-  ],
-  XXXsubmitted: bool,
-  XXXscore: int,
-  (isFetching: bool),
-  (fetchSuccess, fetcherror),
-  (challengeLevel)
-}
-*/
-
+import { combineReducers } from 'redux';
 import randomWords from 'random-words';
 import { shuffle, evaluateTagPositions, createTagObjects } from '../utils.js';
 
@@ -58,26 +42,14 @@ const areAnswersSubmitted = (state = false, action) => {
       return state;
   }
 
+const rootReducer = combineReducers({
+  correctAnswers,
+  tags,
+  score,
+  areAnswersSubmitted
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default rootReducer;
 
 
 // Something like this for wordItems?
