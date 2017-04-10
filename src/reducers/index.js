@@ -24,6 +24,7 @@ const tags = (state = initialTags, action) => {
     default:
       return state;
   }
+};
 
 const score = (state = 0, action) => {
   if (action.type === 'UPDATE_SCORE') {
@@ -32,7 +33,7 @@ const score = (state = 0, action) => {
   return state;
 };
 
-const areAnswersSubmitted = (state = false, action) => {
+const answersSubmitted = (state = false, action) => {
   switch (action.type){
     case 'SUBMIT_ANSWERS':
       return state = true;
@@ -41,27 +42,13 @@ const areAnswersSubmitted = (state = false, action) => {
     default:
       return state;
   }
+};
 
 const rootReducer = combineReducers({
   correctAnswers,
   tags,
   score,
-  areAnswersSubmitted
-})
+  answersSubmitted
+});
 
 export default rootReducer;
-
-
-// Something like this for wordItems?
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     winner: ownProps.currentValue === state.correctAnswers[ownProps.currentIndex],
-//   }
-// }
-
-//...and for gifItems?
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     winner: ownProps.value === state.userAnswers[ownProps.currentIndex],
-//   }
-// }
