@@ -2,28 +2,34 @@ header {
     display: none;
 }
 
-@media (min-width: 576px){
+@media (min-width: 770px){
   header {
       display: flex;
-      border: 3px solid yellow;
-      background-color: orange;
-      justify-content: center;
+      color: white;
+      flex-direction: column;
+      background-color: #121212;
+      justify-content: flex-end;
       align-items: center;
-      height: 7vh;
+      height: 15vh;
       min-height: 40px;
   }
 
   header h1 {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 900;
+    /*margin-bottom: 10px;*/
+  }
+
+  .header-stripe {
+    margin-top: 15px;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(to right,#0cf,#93f 31%,#e646b6 52%,#fff9aa 77%,#0f9,#0cf);
+    align-self: flex-end;
   }
 }
 
-@media (min-width: 992px){
-  header {
-    height: 10vh;
-  }
-}
+
 
 /*
 

@@ -1,14 +1,18 @@
 import React from 'react';
 import GifItem from './GifItem';
+import ListInfo from '../containers/ListInfo';
 import '../styles/List.css';
 
-export default () => {
-  return (
-    <ul className='list gif-list'>
-      <GifItem />
-      <GifItem />
-      <GifItem />
-      <GifItem />
-    </ul>
-  );
-};
+const GifList = ({ answersSubmitted, tags, correctAnswers }) => (
+  <ul className='list gif-list'>
+    {correctAnswers.map((w, i) =>
+      <GifItem
+        key={i}
+        word={w}
+        />
+    )}
+  </ul>
+);
+
+
+export default ListInfo(GifList);

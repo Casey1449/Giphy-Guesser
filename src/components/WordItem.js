@@ -3,14 +3,12 @@ import '../styles/App.css';
 import '../styles/ListItems.css';
 import { SortableElement } from 'react-sortable-hoc';
 
-const WordItem = SortableElement((props) =>
-
+const WordItem = SortableElement(({ value }) =>
   <li className='list-item word-item'>
     <div className='word-arrow'>
-      <p>{props.word}</p>
+      <p>{value}</p>
     </div>
   </li>
-
 );
 
 export default WordItem;
