@@ -4,12 +4,11 @@ import randomWords from 'random-words';
 import { createNewTags } from '../utils.js';
 
 const mapStateToProps = state => {
-  const { score, tags, answersSubmitted, correctAnswers } = state;
+  const { score, tags, answersSubmitted } = state;
   return {
     score,
     tags,
-    answersSubmitted,
-    correctAnswers
+    answersSubmitted
   };
 };
 
