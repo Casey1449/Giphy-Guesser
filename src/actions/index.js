@@ -1,22 +1,43 @@
-export const updateScore = score => {
+import fetch from 'isomorphic-fetch';
+
+export const updateScore = score => (
+  { type: 'UPDATE_SCORE', score }
+);
+
+export const startNextRound = (newWords, newTags) => (
+  { type: 'START_NEXT_ROUND', newWords, newTags }
+);
+
+export const updateTags = (oldIndex, newIndex) => (
+  { type: 'UPDATE_TAGS', oldIndex, newIndex }
+);
+
+export const requestingGifs = () => (
+  { type: 'REQUESTING_GIFS' }
+);
+
+export const replaceGifs = (newGifItems) => {
   return {
-    type: 'UPDATE_SCORE',
-    currentRoundScore: score
+    type: 'REPLACE_GIFS',
+    newGifItems
   };
 };
 
-export const startNextRound = (newWords, newTags) => {
-  return {
-    type: 'START_NEXT_ROUND',
-    newWords,
-    newTags
-  };
-};
+const fetchGifByWord = word => (
+  fetch(`http://api.giphy.com/v1/gifs/search?q=${word}&limit=1&api_key=dc6zaTOxFJmzC`)
+    .then(response => response.json())
+    .then(json => ({
+      word,
+      desktop: json.data[0].images.fixed_height,
+      mobileStill: json.data[0].images.fixed_height_still
+    })
+  )
+);
 
-export const updateTags = (oldIndex, newIndex) => {
-  return {
-    type: 'UPDATE_TAGS',
-    oldIndex,
-    newIndex
-  };
-};
+export const fetchGifs = words => (
+  dispatch => {
+    dispatch(requestingGifs());
+    return Promise.all( words.map(word => fetchGifByWord(word)) )
+      .then(gifs => dispatch(replaceGifs(gifs)));
+  }
+);

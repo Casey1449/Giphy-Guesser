@@ -1,24 +1,38 @@
 import React from 'react';
 import GifItem from './GifItem';
 import ListInfo from '../containers/ListInfo';
+import Spinner from './Spinner';
 import '../styles/List.css';
 
-const GifList = ({ answersSubmitted, tags, correctAnswers }) => {
+//gifs must be background images!
+//or use the still!
+//(so text can be displayed on top)
+
+const GifList = ({ answersSubmitted, tags, gifs, isFetchingGifs, correctAnswers }) => {
   return (
     <ul className='list gif-list'>
       { answersSubmitted ?
-          tags.map((t, i) =>
+          gifs.map((t, i) =>
             <GifItem
               key={i}
-              value={ t.isInCorrectPosition ? '+25!' : '❌' }
+              winner={tags[i].isInCorrectPosition}
+              gif={gifs[i]}
+
               />
           )
-        : correctAnswers.map((w, i) =>
+        : gifs.length !== 4 || isFetchingGifs ?
+            <GifItem
+              key={Math.random()}
+              value={<Spinner />}
+              />
+            :
+
+        gifs.map((g, i) =>
           <GifItem
             key={i}
-            value={w}
+            value={g}
             />
-          )
+        )
       }
     </ul>
   );

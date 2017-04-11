@@ -7,12 +7,8 @@ const initialWords = randomWords(4);
 
 const initialTags = createNewTags(initialWords);
 
-const correctAnswers = (state = initialWords, action) => {
-  if (action.type === 'START_NEXT_ROUND') {
-    return action.newWords;
-  }
-  return state;
-};
+const correctAnswers = (state = initialWords, action) =>
+  action.type === 'START_NEXT_ROUND' ? action.newWords : state;
 
 const tags = (state = initialTags, action) => {
   switch (action.type){
@@ -27,12 +23,22 @@ const tags = (state = initialTags, action) => {
   }
 };
 
-const score = (state = 0, action) => {
-  if (action.type === 'UPDATE_SCORE') {
-    return state + action.currentRoundScore;
+const isFetchingGifs = (state = false, action) => {
+  switch (action.type){
+    case 'REQUESTING_GIFS':
+      return true;
+    case 'REPLACE_GIFS':
+      return false;
+    default:
+      return state;
   }
-  return state;
 };
+
+const gifs = (state = [], action) =>
+  action.type === 'REPLACE_GIFS' ? action.newGifItems : state;
+
+const score = (state = 0, action) =>
+  action.type === 'UPDATE_SCORE' ? state + action.score : state;
 
 const answersSubmitted = (state = false, action) => {
   switch (action.type){
@@ -48,6 +54,8 @@ const answersSubmitted = (state = false, action) => {
 const rootReducer = combineReducers({
   correctAnswers,
   tags,
+  isFetchingGifs,
+  gifs,
   score,
   answersSubmitted
 });

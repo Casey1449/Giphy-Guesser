@@ -1,6 +1,4 @@
-
 //Durstenfeld shuffle algorithm:
-
 export const shuffle = array => {
   let arr = array.slice();
     for (let i = arr.length - 1; i > 0; i--) {
@@ -22,13 +20,12 @@ export const evaluateTagPositions = tags => (
 export const createNewTags = correctAnswers => (
   evaluateTagPositions(
     shuffle(
-      correctAnswers.map((w, i) => {
-        return {
-          word: w,
+      correctAnswers.map((w, i) => (
+        { word: w,
           correctIndex: i,
-          isInCorrectPosition: true
-        };
-      })
+          isInCorrectPosition: true }
+        )
+      )
     )
   )
 );

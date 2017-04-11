@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import { updateTags } from '../actions/index.js';
 
 const mapStateToProps = (state) => {
-  const { tags, answersSubmitted, correctAnswers } = state;
+  const { tags, answersSubmitted, gifs, isFetchingGifs } = state;
   return {
     tags,
     answersSubmitted,
-    correctAnswers
+    gifs,
+    isFetchingGifs
   };
 };
 

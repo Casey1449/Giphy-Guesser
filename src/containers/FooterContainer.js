@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateScore, startNextRound } from '../actions/index.js';
+import { updateScore, startNextRound, fetchGifs } from '../actions/index.js';
 import randomWords from 'random-words';
 import { createNewTags } from '../utils.js';
 
@@ -17,10 +17,9 @@ const mapDispatchToProps = dispatch => {
     startClick: () => {
         let newWords = randomWords(4);
         dispatch(startNextRound(newWords, createNewTags(newWords)));
+        dispatch(fetchGifs(newWords));
       },
-    submitClick: (score) => {
-      dispatch(updateScore(score));
-    }
+    submitClick: score => dispatch(updateScore(score))
   };
 };
 
