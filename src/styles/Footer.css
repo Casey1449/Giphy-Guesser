@@ -2,33 +2,55 @@ footer {
     display: flex;
     background-color: #121212;
     justify-content: space-between;
-    padding: 10px 0px;
-    padding-left: 10px;
+    padding: 10px;
     align-items: center;
     height: 12vh;
     min-height: 50px;
 }
 
-footer h1 {
+.score {
+  width: 200px;
+  text-align: center;
   color: #0f9;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: auto;
 }
 
 footer button {
+  margin: 8px;
   font-size: 1.5em;
   font-weight: 900;
   height: 100%;
+  max-height: 80px;
   width: 200px;
   border: none;
   background: linear-gradient(to right top, #93f, #e646b6);
   color: white;
 }
 
-@media (min-width: 992px){
+@media (min-width: 850px){
   footer {
-    height: 15vh;
+    padding-left: 210px;
+    /*padding-right: 120px;*/
+    height: 20vh;
+    justify-content: flex-start;
   }
+
+  footer button {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: 0px
+  }
+
+.score {
+    margin: 0;
+    margin-left: auto;
+  }
+
+  /*footer button {
+    margin-right: auto
+  }*/
+
 }
 
 /*

@@ -2,8 +2,8 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  max-width: 992px;
   margin: auto;
+  max-width: 576px;
 }
 
 .game-box {
@@ -13,9 +13,14 @@
     flex-direction: row;
 }
 
-@media (min-width: 770px){
+@media (min-width: 850px){
   .game-box {
     flex-direction: column;
+    padding: 15px;
+  }
+
+  .App {
+    max-width: 1200px;
   }
 }
 

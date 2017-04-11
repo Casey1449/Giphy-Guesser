@@ -3,31 +3,36 @@
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 7px 12px;
   border: none;
+  padding: 10px;
   flex-direction: column;
 }
 
 .gif-list {
-  flex: 2;
+  padding-right: 15px;
+  flex: 4;
 }
 
 .word-list {
-  padding-right: 0px;
+  padding-left: 15px;
   justify-content: space-around;
-  flex: 1;
+  flex: 2;
 }
 
-@media (min-width: 770px){
+@media (min-width: 850px){
   .list {
+    padding: 0;
     flex-direction: row;
+    align-items: stretch;
   }
 
   .word-list {
-    padding-bottom: 0;
-    padding-top: 15px;
-    padding-right: 10px;
-    flex: .5
+    flex: 1 1 auto;
+    padding-bottom: 10px;
+  }
+
+  .gif-list {
+    /*margin-top: 10px*/
   }
 }
 
