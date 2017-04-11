@@ -35,7 +35,9 @@ const fetchGifByWord = word => (
 );
 
 export const fetchGifs = words => (
-  dispatch =>
-    Promise.all( words.map(word => fetchGifByWord(word)) )
-      .then(gifs => dispatch(replaceGifs(gifs)))
+  dispatch => {
+    dispatch(requestingGifs());
+    return Promise.all( words.map(word => fetchGifByWord(word)) )
+      .then(gifs => dispatch(replaceGifs(gifs)));
+  }
 );
