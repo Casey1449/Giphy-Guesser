@@ -2,9 +2,17 @@ import React from 'react';
 import '../styles/ListItems.css';
 import Spinner from './Spinner';
 
-export default ({ value }) => {
+export default ({ value, winner }) => {
 
-  if(value.desktop){
+  if (!value || !value.desktop) {
+
+    return (
+      <li className='list-item gif-item'>
+        <p>{winner}</p>
+      </li>
+    );
+
+  } else {
 
     const gifStyle = {
       background: `url(${value.desktop.url}) no-repeat`,
@@ -15,16 +23,9 @@ export default ({ value }) => {
     return (
       <li className='list-item gif-item'
           style = {gifStyle}>
-        <p>Test Content</p>
       </li>
     );
   }
-
-  return (
-    <li className='list-item gif-item'>
-      <Spinner />
-    </li>
-  );
 };
 //
 // { !value.desktop ?
