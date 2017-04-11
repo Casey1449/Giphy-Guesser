@@ -23,25 +23,19 @@ export const replaceGifs = (newGifItems) => {
   };
 };
 
-const createGifItem = (json, word) => ({
-  word,
-  desktopEmbedded: json.data[0].embed_url,
-  mobileStill: json.data[0].images.fixed_height_still
-});
-
 const fetchGifByWord = word => (
   fetch(`http://api.giphy.com/v1/gifs/search?q=${word}&limit=1&api_key=dc6zaTOxFJmzC`)
     .then(response => response.json())
-    .then(json => createGifItem(json, word))
+    .then(json => ({
+      word,
+      desktopEmbedded: json.data[0].embed_url,
+      mobileStill: json.data[0].images.fixed_height_still
+    })
+  )
 );
 
-const mapWordsToGifs = words => (
-  words.map(word => fetchGifByWord(word))
+export const fetchGifs = words => (
+  dispatch =>
+    Promise.all( words.map(word => fetchGifByWord(word)) )
+      .then(gifs => dispatch(replaceGifs(gifs)))
 );
-
-export const fetchGifs = words => {
-  return function(dispatch) {
-    return Promise.all(mapWordsToGifs(words))
-      .then(gifs => dispatch(replaceGifs(gifs)));
-  };
-};
