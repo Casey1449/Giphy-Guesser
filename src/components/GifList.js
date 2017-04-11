@@ -4,7 +4,7 @@ import ListInfo from '../containers/ListInfo';
 import Spinner from './Spinner';
 import '../styles/List.css';
 
-const GifList = ({ answersSubmitted, tags, gifs }) => {
+const GifList = ({ answersSubmitted, tags, gifs, isFetchingGifs }) => {
   return (
     <ul className='list gif-list'>
       { answersSubmitted ?
@@ -14,7 +14,7 @@ const GifList = ({ answersSubmitted, tags, gifs }) => {
               value={ t.isInCorrectPosition ? '+25!' : '❌' }
               />
           )
-        : gifs.length !== 4 ?
+        : gifs.length !== 4 || isFetchingGifs ?
             <GifItem
               key={Math.random()}
               value={<Spinner />}

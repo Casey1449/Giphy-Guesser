@@ -28,7 +28,7 @@ const fetchGifByWord = word => (
     .then(response => response.json())
     .then(json => ({
       word,
-      desktopEmbedded: json.data[0].embed_url,
+      desktop: json.data[0].images.fixed_height,
       mobileStill: json.data[0].images.fixed_height_still
     })
   )

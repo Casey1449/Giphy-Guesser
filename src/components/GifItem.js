@@ -5,10 +5,10 @@ import Spinner from './Spinner';
 export default ({ value }) => {
   return (
     <li className='list-item gif-item'>
-      { !value.mobileStill ?
+      { !value.desktop ?
           <div style={{color: 'black'}}>{value}</div>
         :
-          <img className={}src={value.mobileStill.url} alt='gif'/>
+          <img className='gif' src={value.desktop.url} alt='gif'/>
       }
     </li>
   )
