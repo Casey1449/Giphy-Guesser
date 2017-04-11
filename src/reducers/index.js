@@ -37,28 +37,28 @@ const tags = (state = initialTags, action) => {
   }
 };
 
-const gifs = (state = initialGifs, action) => {
-  switch (action.type) {
-    // case INVALIDATE_ROUND:
-    //   return Object.assign({}, state, {
-    //     didInvalidate: true
-    //   })
-    case REQUEST_POSTS:
-      return Object.assign({}, state, {
-        isFetching: true,
-        didInvalidate: false
-      })
-    case RECEIVE_POSTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        didInvalidate: false,
-        items: action.posts,
-        lastUpdated: action.receivedAt
-      })
-    default:
-      return state
-  }
-}
+// const gifs = (state = initialGifs, action) => {
+//   switch (action.type) {
+//     // case INVALIDATE_ROUND:
+//     //   return Object.assign({}, state, {
+//     //     didInvalidate: true
+//     //   })
+//     case REQUEST_POSTS:
+//       return Object.assign({}, state, {
+//         isFetching: true,
+//         didInvalidate: false
+//       })
+//     case RECEIVE_POSTS:
+//       return Object.assign({}, state, {
+//         isFetching: false,
+//         didInvalidate: false,
+//         items: action.posts,
+//         lastUpdated: action.receivedAt
+//       })
+//     default:
+//       return state
+//   }
+// }
 
 const score = (state = 0, action) =>
   action.type === 'UPDATE_SCORE' ? state + action.score : state;

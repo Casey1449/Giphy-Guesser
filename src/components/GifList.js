@@ -1,6 +1,7 @@
 import React from 'react';
 import GifItem from './GifItem';
 import ListInfo from '../containers/ListInfo';
+import Spinner from './Spinner';
 import '../styles/List.css';
 
 const GifList = ({ answersSubmitted, tags, correctAnswers }) => {
@@ -16,7 +17,7 @@ const GifList = ({ answersSubmitted, tags, correctAnswers }) => {
         : correctAnswers.map((w, i) =>
           <GifItem
             key={i}
-            value={w}
+            value={w || <Spinner/>}
             />
           )
       }
