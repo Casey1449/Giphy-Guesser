@@ -4,14 +4,20 @@ import ListInfo from '../containers/ListInfo';
 import Spinner from './Spinner';
 import '../styles/List.css';
 
-const GifList = ({ answersSubmitted, tags, gifs, isFetchingGifs }) => {
+//gifs must be background images!
+//or use the still!
+//(so text can be displayed on top)
+
+const GifList = ({ answersSubmitted, tags, gifs, isFetchingGifs, correctAnswers }) => {
   return (
     <ul className='list gif-list'>
       { answersSubmitted ?
-          tags.map((t, i) =>
+          gifs.map((t, i) =>
             <GifItem
               key={i}
-              value={ t.isInCorrectPosition ? '+25!' : '❌' }
+              winner={tags[i].isInCorrectPosition}
+              gif={gifs[i]}
+
               />
           )
         : gifs.length !== 4 || isFetchingGifs ?
