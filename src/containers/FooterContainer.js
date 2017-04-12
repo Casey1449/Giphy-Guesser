@@ -1,28 +1,32 @@
 import { connect } from 'react-redux';
-import { updateScore, startNextRound, fetchGifs, submitAnswers } from '../actions/index.js';
+import { updateScore, startNextRound, fetchGifs, submitAnswers, updateChallengeLevel } from '../actions/index.js';
 import randomWords from 'random-words';
 import { createNewTags } from '../utils.js';
 
 const mapStateToProps = state => {
-  const { score, tags, answersSubmitted } = state;
+  const { score, tags, answersSubmitted, listLength } = state;
   return {
     score,
     tags,
-    answersSubmitted
+    answersSubmitted,
+    listLength
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    startClick: () => {
-        let newWords = randomWords(4);
+    startClick: (number) => {
+        let newWords = randomWords(number);
         dispatch(fetchGifs(newWords));
         dispatch(startNextRound(newWords, createNewTags(newWords)));
       },
     submitClick: score => {
         dispatch(submitAnswers());
         dispatch(updateScore(score));
-      }
+      },
+    newChallengeClick: number => {
+      dispatch(updateChallengeLevel(number));
+    }
   };
 };
 

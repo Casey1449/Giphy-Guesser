@@ -27,6 +27,12 @@ export const replaceGifs = (newGifItems) => {
   };
 };
 
+export const updateChallengeLevel = number => (
+  { type: 'UPDATE_CHALLENGE_LEVEL',
+    number
+  }
+);
+
 const fetchGifByWord = word => (
   fetch(`http://api.giphy.com/v1/gifs/search?q=${word}&limit=1&&api_key=dc6zaTOxFJmzC`)
     .then(response => response.json())
