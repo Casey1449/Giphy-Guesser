@@ -26,12 +26,12 @@ const GifItem = (props) => {
     )
   } else {
 
-    const gifUrl = gifs[index].desktop.url;
+    const gifUrl = gifs[index].desktop.webp;
 
     const gifStyle = {
       background: `url(${gifUrl}) no-repeat`,
       backgroundPosition: 'center',
-      backgroundSize: 'contain'
+      backgroundSize: 'contain',
     };
 
     return(

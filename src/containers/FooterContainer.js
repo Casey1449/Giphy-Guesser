@@ -14,13 +14,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    startClick: (score) => {
+    startClick: () => {
         let newWords = randomWords(4);
-        dispatch(updateScore(score));
         dispatch(fetchGifs(newWords));
         dispatch(startNextRound(newWords, createNewTags(newWords)));
       },
-    submitClick: () => dispatch(submitAnswers())
+    submitClick: score => {
+        dispatch(submitAnswers());
+        dispatch(updateScore(score));
+      }
   };
 };
 
