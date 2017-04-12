@@ -32,7 +32,7 @@ const fetchGifByWord = word => (
     .then(response => response.json())
     .then(json => ({
       word,
-      desktop: json.data[0].images.fixed_height,
+      desktop: json.data[0].images.fixed_height_small,
     })
   )
 );

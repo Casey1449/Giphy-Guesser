@@ -26,7 +26,7 @@ const GifItem = (props) => {
     )
   } else {
 
-    const gifUrl = gifs[index].desktop.webp;
+    const gifUrl = gifs[index].desktop.url;
 
     const gifStyle = {
       background: `url(${gifUrl}) no-repeat`,
