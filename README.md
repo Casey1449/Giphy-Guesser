@@ -20,3 +20,4 @@ Play here: http://nameless-fortress-40160.herokuapp.com/
 * Add better hover states
 * Add rating selection feature
 * Replace the word generator with the [Wordnik](http://developer.wordnik.com/) API for more interesting and uncommon words.
+* Replace silly Heroku domain name
