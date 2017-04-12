@@ -4,26 +4,13 @@ import ListInfo from '../containers/ListInfo';
 import Spinner from './Spinner';
 import '../styles/List.css';
 
-const GifList = ({ answersSubmitted, tags, gifs, isFetchingGifs, correctAnswers }) => {
+const GifList = ({correctAnswers}) => {
   return (
-    <ul className='list gif-list'>
-      { answersSubmitted ?
-          gifs.map((t, i) =>
-            <GifItem
-              key={i}
-              winner={tags[i].isInCorrectPosition}
-              gif={gifs[i]}
-              />
-          )
-        :
-          gifs.map((g, i) =>
-            <GifItem
-              key={i}
-              value={g}
-            />
-        )
-      }
-    </ul>
+    correctAnswers && correctAnswers.length ?
+      <ul className='list gif-list'>
+        { correctAnswers.map((w, i) => <GifItem key={i} index={i} />) }
+      </ul>
+    : <Spinner />
   );
 };
 
