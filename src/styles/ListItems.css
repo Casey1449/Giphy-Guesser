@@ -9,6 +9,26 @@
   margin: 2px 0px;
 }
 
+.gif-mask {
+  font-size: 3em;
+  font-weight: 900;
+  text-shadow: 0px 3px 50px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(62,62,62, 0.8);
+}
+
+.winner-true {
+  color: #0f9;
+}
+
+.winner-false {
+  color: #f66;
+}
+
 .word-item {
   background: none;
   box-shadow: none;

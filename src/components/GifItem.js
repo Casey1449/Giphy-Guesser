@@ -1,34 +1,51 @@
 import React from 'react';
 import '../styles/ListItems.css';
 import Spinner from './Spinner';
+import ListInfo from '../containers/ListInfo';
 
-export default ({ value }) => {
+const GifMask = ({ winner, show }) => {
+  return (
+    <div
+      className={`gif-mask winner-${winner.toString()}`}
+      style={show ? {} : { display: 'none' }}
+    >
+      <span>{ winner ? '+25!' : 'X' }</span>
+    </div>
+  );
+}
 
-  if(value.desktop){
+const GifItem = (props) => {
+
+  const { answersSubmitted, tags, gifs, isFetchingGifs, correctAnswers, index } = props;
+
+  if(isFetchingGifs || !gifs[index]){
+    return(
+      <li className='list-item gif-item'>
+        <Spinner />
+      </li>
+    )
+  } else {
+
+    const gifUrl = gifs[index].desktop.webp;
 
     const gifStyle = {
-      background: `url(${value.desktop.url}) no-repeat`,
+      background: `url(${gifUrl}) no-repeat`,
       backgroundPosition: 'center',
-      backgroundSize: 'contain'
+      backgroundSize: 'contain',
     };
 
-    return (
+    return(
       <li className='list-item gif-item'
-          style = {gifStyle}>
-        <p>Test Content</p>
+          style={ gifStyle }>
+        <GifMask
+          show={ answersSubmitted }
+          winner={ tags[index].isInCorrectPosition }
+        />
       </li>
     );
   }
-
-  return (
-    <li className='list-item gif-item'>
-      <Spinner />
-    </li>
-  );
 };
-//
-// { !value.desktop ?
-//   <div style={{color: 'black'}}>{value}</div>
-//   :
-//   <img className='gif' src={value.desktop.url} alt='gif'/>
-// }
+
+export default ListInfo(GifItem);
+
+// style={{ display: answersSubmitted ? null : 'none' }}

@@ -19,8 +19,8 @@ const Footer = ({score, tags, answersSubmitted, startClick, submitClick}) => {
           </button>
       }
       <div className='score'>
-        <h1>{score || 0}</h1>
-      </div>          
+        <h1 key={'score-key'}>{score || 0}</h1>
+      </div>
     </footer>
   );
 };

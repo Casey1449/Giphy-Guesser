@@ -42,7 +42,7 @@ const score = (state = 0, action) =>
 
 const answersSubmitted = (state = false, action) => {
   switch (action.type){
-    case 'UPDATE_SCORE':
+    case 'SUBMIT':
       return state = true;
     case 'START_NEXT_ROUND':
       return state = false;
