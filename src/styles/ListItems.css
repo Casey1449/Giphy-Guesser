@@ -75,6 +75,10 @@
     margin-top: 10px;
   }
 
+  .word-arrow .answer-arrow {
+    font-size: 18px;
+  }
+
   .word-arrow {
     width: 80%;
     box-sizing: border-box;

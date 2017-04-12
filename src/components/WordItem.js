@@ -10,24 +10,22 @@ const WordItem = SortableElement(({ value, winner, index, roundOver, thisAnswer 
       <li className='list-item word-item'>
         <div className='word-arrow'>
           { winner ?
-              <p >{value}</p>
+              <p>{value}</p>
             :
               <div style={{
                   textAlign: 'center',
                   padding: '0px 5px',
                   marginBottom: '5%'
                 }}>
-                <p style={{
+                <p className='answer-arrow'
+                  style={{
                     color: '#f66',
-                    fontSize: '18px',
                     textDecoration: 'line-through',
                     marginBottom: '0%'
                   }}>
                   {value}
                 </p>
-                <p style={{
-                    fontSize: '18px',
-                  }}>
+                <p className='answer-arrow'>
                   {thisAnswer}
                 </p>
               </div>
