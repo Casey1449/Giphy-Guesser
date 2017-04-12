@@ -23,6 +23,10 @@ const tags = (state = initialTags, action) => {
   }
 };
 
+const listLength = (state = 4, action) =>
+  action.type === 'UPDATE_CHALLENGE_LEVEL' ?
+    action.number : state;
+
 const isFetchingGifs = (state = false, action) => {
   switch (action.type){
     case 'REQUESTING_GIFS':
@@ -54,6 +58,7 @@ const answersSubmitted = (state = false, action) => {
 const rootReducer = combineReducers({
   correctAnswers,
   tags,
+  listLength,
   isFetchingGifs,
   gifs,
   score,

@@ -4,7 +4,9 @@ import WordList from './components/WordList';
 import GifList from './components/GifList';
 import Footer from './components/Footer';
 import { connect } from 'react-redux';
-import { fetchGifs } from './actions';
+import { fetchGifs, startNextRound } from './actions';
+import randomWords from 'random-words';
+import { createNewTags } from './utils.js';
 import './styles/App.css';
 
 class App extends Component {
@@ -16,12 +18,13 @@ class App extends Component {
     dispatch(fetchGifs(initialWords));
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.selectedSubreddit !== prevProps.selectedSubreddit) {
-  //     const { dispatch, selectedSubreddit } = this.props
-  //     dispatch(fetchPostsIfNeeded(selectedSubreddit))
-  //   }
-  // }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.listLength !== this.props.listLength){
+      let newWords = randomWords(nextProps.listLength);
+      this.props.dispatch(fetchGifs(newWords));
+      this.props.dispatch(startNextRound(newWords, createNewTags(newWords)));
+    }
+  }
 
   render() {
     return (
@@ -37,6 +40,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({initialWords: state.correctAnswers});
+const mapStateToProps = state => (
+  { initialWords: state.correctAnswers,
+     listLength: state.listLength }
+);
 
 export default connect(mapStateToProps)(App);
