@@ -1,7 +1,22 @@
 # Giphy-Guesser
-Match the randomly-generated words with the gifs they've produced!
+
+## Improve your Slack gif accumen by matching the randomly-generated words with the gifs they've produced!
+### Works on all major browsers and mobile!
+
+Play here: http://nameless-fortress-40160.herokuapp.com/
+
+![](http://g.recordit.co/6996CrOJgE.gif)
 
 ## Tools used:
 * [The Giphy API](https://github.com/Giphy/GiphyAPI)
-* [React DnD:](https://react-dnd.github.io/react-dnd/docs-tutorial.html) Written by the famous Dan Abramov, to address problems with directly accessing HTML5's Drag and Drop API, as he describes [here](https://medium.com/@dan_abramov/the-future-of-drag-and-drop-apis-249dfea7a15f). With the inclusion of [react-dnd-touch-backend](https://github.com/yahoo/react-dnd-touch-backend), this even provides mobile touch-event support!
+* [React Sortable HOC:](https://github.com/clauderic/react-sortable-hoc)
 * [This random word generator:](https://github.com/punkave/random-words/blob/master/index.js) Contains ~2000 common English words. 
+* Create-react-app, redux, redux-thunk, isomorphic-fetch, es6-promises
+
+## Todos:
+* Add Giphy attribution badge somewhere
+* Improve spinner
+* Add placeholder gif stills while rendering
+* Add better hover states
+* Add rating selection feature
+* Replace the word generator with the [Wordnik](http://developer.wordnik.com/) API for more interesting and uncommon words.
