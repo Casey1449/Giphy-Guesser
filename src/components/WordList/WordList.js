@@ -2,11 +2,11 @@ import React from "react";
 import WordItem from "../WordItem/WordItem";
 import { SortableContainer } from "react-sortable-hoc";
 import ListInfo from "../../containers/ListInfo";
-import "./WordList.scss";
+import styles from "./WordList.scss";
 
 const WordList = SortableContainer(
   ({ tags, answersSubmitted, correctAnswers }) => (
-    <ul className="list word-list">
+    <ul className={styles.list}>
       {tags.map((tag, i) => (
         <WordItem
           key={`item-${i}`}

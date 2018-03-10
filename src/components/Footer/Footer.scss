@@ -1,15 +1,19 @@
 footer {
-    display: flex;
-    background-color: #121212;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    height: 12vh;
-    min-height: 50px;
+  display: flex;
+  background-color: #121212;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  height: 12vh;
+  min-height: 50px;
 }
 
-.button-widget {
+.button_widget {
   display: none;
+}
+
+.widget_label {
+  color: white;
 }
 
 .score {
@@ -31,26 +35,26 @@ footer button {
   color: white;
 }
 
-@media (min-width: 850px){
+@media (min-width: 850px) {
   footer {
     padding-left: 10px;
     height: 20vh;
     justify-content: space-between;
   }
 
-  .button-widget {
+  .button_widget {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 210px;
   }
 
-  .button-widget p {
+  .button_widget p {
     margin: 5px;
     text-align: center;
   }
 
-  .challenge-level {
+  .challenge_level {
     display: flex;
     flex-direction: row;
     height: 50px;
@@ -58,7 +62,7 @@ footer button {
     justify-content: center;
   }
 
-  .challenge-button {
+  .challenge_button {
     margin: auto 0px;
     color: #121212;
     flex: 1;
@@ -67,7 +71,7 @@ footer button {
     background-color: #f66;
   }
 
-  .active-true {
+  .active_true {
     background-color: #0f9;
   }
 

@@ -1,6 +1,7 @@
 import React from "react";
-import "./Footer.scss";
+import styles from "./Footer.scss";
 import FooterContainer from "../../containers/FooterContainer";
+import cx from "classnames";
 
 const Footer = ({
   score,
@@ -18,25 +19,34 @@ const Footer = ({
   };
 
   return (
-    <footer>
-      <div className="button-widget">
-        <p style={{ color: "white" }}>Choose your challenge level</p>
-        <div className="challenge-level">
+    <footer className={styles.footer}>
+      <div className={styles.button_widget}>
+        <p className={styles.widget_label}>Choose your challenge level</p>
+        <div className={styles.challenge_level}>
           <button
-            className={`challenge-button active-${listLength === 3}`}
+            className={cx(
+              styles.challenge_button,
+              listLength === 3 && styles.active_true
+            )}
             onClick={() => handleChallengeUpdate(3)}
           >
             3
           </button>
           <button
-            className={`challenge-button active-${listLength === 4}`}
+            className={cx(
+              styles.challenge_button,
+              listLength === 4 && styles.active_true
+            )}
             onClick={() => handleChallengeUpdate(4)}
           >
             4
           </button>
           <button
             id={3}
-            className={`challenge-button active-${listLength === 5}`}
+            className={cx(
+              styles.challenge_button,
+              listLength === 5 && styles.active_true
+            )}
             onClick={() => handleChallengeUpdate(5)}
           >
             5
@@ -48,7 +58,7 @@ const Footer = ({
       ) : (
         <button onClick={() => submitClick(tallyScore())}>Submit!</button>
       )}
-      <div className="score">
+      <div className={styles.score}>
         <h1 key={"score-key"}>{score || 0}</h1>
       </div>
     </footer>

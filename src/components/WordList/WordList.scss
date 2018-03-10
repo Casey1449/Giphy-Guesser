@@ -6,14 +6,6 @@
   border: none;
   padding: 10px;
   flex-direction: column;
-}
-
-.gif-list {
-  padding-right: 15px;
-  flex: 4;
-}
-
-.word-list {
   padding-left: 15px;
   justify-content: space-around;
   flex: 2;
@@ -24,15 +16,8 @@
     padding: 0;
     flex-direction: row;
     align-items: stretch;
-  }
-
-  .word-list {
     flex: 1 1 auto;
     padding-bottom: 10px;
-  }
-
-  .gif-list {
-    /*margin-top: 10px*/
   }
 }
 

@@ -1,12 +1,16 @@
 import React from "react";
-import "./GifItem.scss";
+import styles from "./GifItem.scss";
 import Spinner from "../Spinner/Spinner";
 import ListInfo from "../../containers/ListInfo";
+import cx from "classnames";
 
 const GifMask = ({ winner, show }) => {
   return (
     <div
-      className={`gif-mask winner-${winner.toString()}`}
+      className={cx(
+        styles.gif_mask,
+        winner ? styles.winner_true : styles.winner_false
+      )}
       style={show ? {} : { display: "none" }}
     >
       <span>{winner ? "+25!" : "X"}</span>
@@ -26,7 +30,7 @@ const GifItem = props => {
 
   if (isFetchingGifs || !gifs[index]) {
     return (
-      <li className="list-item gif-item">
+      <li className={cx(styles.list_item, styles.gif_item)}>
         <Spinner />
       </li>
     );
@@ -40,7 +44,7 @@ const GifItem = props => {
     };
 
     return (
-      <li className="list-item gif-item" style={gifStyle}>
+      <li className={cx(styles.list_item, styles.gif_item)} style={gifStyle}>
         <GifMask
           show={answersSubmitted}
           winner={tags[index].isInCorrectPosition}

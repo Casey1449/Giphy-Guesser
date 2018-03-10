@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { fetchGifs, startNextRound } from "./actions";
 import randomWords from "random-words";
 import { createNewTags } from "./utils.js";
-import "./styles/App.scss";
+import styles from "./App.scss";
 
 class App extends Component {
   constructor(props) {
@@ -28,9 +28,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={styles.App}>
         <Header />
-        <div className="game-box">
+        <div className={styles.game_box}>
           <WordList axis={"xy"} />
           <GifList />
         </div>

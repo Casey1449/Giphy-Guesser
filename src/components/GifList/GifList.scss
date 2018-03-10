@@ -1,15 +1,12 @@
-.list {
+.gif_list {
   color: white;
   display: flex;
   list-style: none;
   margin: 0;
   border: none;
   padding: 10px;
-  flex-direction: column;
-}
-
-.gif-list {
   padding-right: 15px;
+  flex-direction: column;
   flex: 4;
 }
 
@@ -19,8 +16,8 @@
   flex: 2;
 }
 
-@media (min-width: 850px){
-  .list {
+@media (min-width: 850px) {
+  .gif_list {
     padding: 0;
     flex-direction: row;
     align-items: stretch;
@@ -29,10 +26,6 @@
   .word-list {
     flex: 1 1 auto;
     padding-bottom: 10px;
-  }
-
-  .gif-list {
-    /*margin-top: 10px*/
   }
 }
 

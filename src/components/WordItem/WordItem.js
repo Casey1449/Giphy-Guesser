@@ -1,14 +1,14 @@
 import React from "react";
-import "../../styles/App.scss";
-import "./WordItem.scss";
+import styles from "./WordItem.scss";
+import cx from "classnames";
 import { SortableElement } from "react-sortable-hoc";
 
 const WordItem = SortableElement(
   ({ value, winner, index, roundOver, thisAnswer }) => {
     if (roundOver) {
       return (
-        <li className="list-item word-item">
-          <div className="word-arrow">
+        <li className={styles.list_item}>
+          <div className={styles.word_arrow}>
             {winner ? (
               <p>{value}</p>
             ) : (
@@ -20,7 +20,7 @@ const WordItem = SortableElement(
                 }}
               >
                 <p
-                  className="answer-arrow"
+                  className={styles.answer_arrow}
                   style={{
                     color: "#f66",
                     textDecoration: "line-through",
@@ -29,7 +29,7 @@ const WordItem = SortableElement(
                 >
                   {value}
                 </p>
-                <p className="answer-arrow">{thisAnswer}</p>
+                <p className={styles.answer_arrow}>{thisAnswer}</p>
               </div>
             )}
           </div>
@@ -37,8 +37,8 @@ const WordItem = SortableElement(
       );
     } else {
       return (
-        <li className="list-item word-item">
-          <div className="word-arrow">
+        <li className={cx(styles.list_item, styles.word_item)}>
+          <div className={styles.word_arrow}>
             <p>{value}</p>
           </div>
         </li>

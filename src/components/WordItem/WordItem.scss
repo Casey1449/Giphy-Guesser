@@ -1,41 +1,16 @@
-.list-item {
+.list_item {
   display: flex;
   box-sizing: border-box;
-  align-items: center;
   justify-content: center;
   flex: 1;
   width: 100%;
   margin: 2px 0px;
-}
-
-.gif-mask {
-  font-size: 3em;
-  font-weight: 900;
-  text-shadow: 0px 3px 50px black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: stretch;
-  width: 100%;
-  background-color: rgba(62, 62, 62, 0.8);
-}
-
-.winner-true {
-  color: #0f9;
-}
-
-.winner-false {
-  color: #f66;
-}
-
-.word-item {
   background: none;
   box-shadow: none;
   align-items: stretch;
-  justify-content: center;
 }
 
-.word-arrow {
+.word_arrow {
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -49,7 +24,7 @@
   background-position: center;
 }
 
-.word-arrow p {
+.word_arrow p {
   margin-left: 10px;
   margin-right: 18px;
   font-size: 4vw;
@@ -57,27 +32,27 @@
 }
 
 @media (min-width: 576px) {
-  .word-arrow p {
+  .word_arrow p {
     font-size: 24px;
   }
 
-  .word-arrow .answer-arrow {
+  .word_arrow .answer_arrow {
     font-size: 18px;
   }
 }
 
 @media (min-width: 850px) {
-  .list-item {
+  .list_item {
     margin: 0px 3px;
   }
 
-  .word-item {
+  .word_item {
     justify-content: center;
     margin-bottom: 0;
     margin-top: 10px;
   }
 
-  .word-arrow {
+  .word_arrow {
     width: 80%;
     box-sizing: border-box;
     background: url(../../styles/images/downpointer.png);
@@ -85,7 +60,7 @@
     background-size: 100% 100%;
   }
 
-  .word-arrow p {
+  .word_arrow p {
     margin: 0px;
     margin-bottom: 15%;
   }
