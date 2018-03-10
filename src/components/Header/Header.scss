@@ -1,17 +1,17 @@
 header {
-    display: none;
+  display: none;
 }
 
-@media (min-width: 576px){
+@media (min-width: 576px) {
   header {
-      display: flex;
-      color: white;
-      flex-direction: column;
-      background-color: #121212;
-      justify-content: center;
-      align-items: center;
-      height: 10vh;
-      min-height: 40px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    background-color: #121212;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    min-height: 40px;
   }
 
   header h1 {
@@ -24,12 +24,20 @@ header {
   .header-stripe {
     height: 4px;
     width: 100%;
-    background: linear-gradient(to right,#0cf,#93f 31%,#e646b6 52%,#fff9aa 77%,#0f9,#0cf);
+    background: linear-gradient(
+      to right,
+      #0cf,
+      #93f 31%,
+      #e646b6 52%,
+      #fff9aa 77%,
+      #0f9,
+      #0cf
+    );
     margin-top: auto;
   }
 }
 
-@media (min-width: 850px){
+@media (min-width: 850px) {
   header {
     height: 20vh;
   }
@@ -38,7 +46,6 @@ header {
     height: 7px;
   }
 }
-
 
 /*
 
