@@ -1,23 +1,28 @@
-import 'es6-promise';
-import React from 'react';
-import { render } from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
-import rootReducer from './reducers/index.js';
-import App from './App';
-import './index.css';
+import "es6-promise";
+import React from "react";
+import { render } from "react-dom";
+import { createStore, applyMiddleware, compose } from "redux";
+import { Provider } from "react-redux";
+import thunkMiddleware from "redux-thunk";
+import rootReducer from "./reducers/index.js";
+import App from "./App";
+import "./index.scss";
 
 const middleware = applyMiddleware(thunkMiddleware);
 
 let store = createStore(
   rootReducer,
-  compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f)
+  compose(
+    middleware,
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__()
+      : f => f
+  )
 );
 
 render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
