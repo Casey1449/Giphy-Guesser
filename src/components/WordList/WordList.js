@@ -1,8 +1,8 @@
 import React from "react";
-import WordItem from "./WordItem";
+import WordItem from "../WordItem/WordItem";
 import { SortableContainer } from "react-sortable-hoc";
-import ListInfo from "../containers/ListInfo";
-import "../styles/List.scss";
+import ListInfo from "../../containers/ListInfo";
+import "./WordList.scss";
 
 const WordList = SortableContainer(
   ({ tags, answersSubmitted, correctAnswers }) => (

@@ -1,4 +1,3 @@
-
 .list-item {
   display: flex;
   box-sizing: border-box;
@@ -18,7 +17,7 @@
   align-items: center;
   align-self: stretch;
   width: 100%;
-  background-color: rgba(62,62,62, 0.8);
+  background-color: rgba(62, 62, 62, 0.8);
 }
 
 .winner-true {
@@ -44,7 +43,7 @@
   width: 100%;
   align-self: stretch;
   background-color: white;
-  background: url(./images/rightpointer.png);
+  background: url(../../styles/images/rightpointer.png);
   background-repeat: no-repeat;
   background-size: 100% 60%;
   background-position: center;
@@ -68,7 +67,6 @@
 }
 
 @media (min-width: 850px) {
-
   .list-item {
     margin: 0px 3px;
   }
@@ -82,12 +80,12 @@
   .word-arrow {
     width: 80%;
     box-sizing: border-box;
-    background: url(./images/downpointer.png);
+    background: url(../../styles/images/downpointer.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
 
-  .word-arrow p{
+  .word-arrow p {
     margin: 0px;
     margin-bottom: 15%;
   }

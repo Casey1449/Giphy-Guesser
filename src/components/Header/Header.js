@@ -1,6 +1,5 @@
 import React from "react";
-import "../styles/Header.scss";
-import Spinner from "./Spinner";
+import "./Header.scss";
 
 export default () => (
   <header>

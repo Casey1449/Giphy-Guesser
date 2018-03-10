@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import WordList from "./components/WordList";
-import GifList from "./components/GifList";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import WordList from "./components/WordList/WordList";
+import GifList from "./components/GifList/GifList";
+import Footer from "./components/Footer/Footer";
 import { connect } from "react-redux";
 import { fetchGifs, startNextRound } from "./actions";
 import randomWords from "random-words";

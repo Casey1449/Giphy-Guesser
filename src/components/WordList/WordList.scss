@@ -1,26 +1,38 @@
-.App {
+.list {
+  color: white;
   display: flex;
-  min-height: 100vh;
+  list-style: none;
+  margin: 0;
+  border: none;
+  padding: 10px;
   flex-direction: column;
-  margin: auto;
-  max-width: 576px;
 }
 
-.game-box {
-  background-color: #3e3e3e;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
+.gif-list {
+  padding-right: 15px;
+  flex: 4;
+}
+
+.word-list {
+  padding-left: 15px;
+  justify-content: space-around;
+  flex: 2;
 }
 
 @media (min-width: 850px) {
-  .game-box {
-    flex-direction: column;
-    padding: 15px;
+  .list {
+    padding: 0;
+    flex-direction: row;
+    align-items: stretch;
   }
 
-  .App {
-    max-width: 1100px;
+  .word-list {
+    flex: 1 1 auto;
+    padding-bottom: 10px;
+  }
+
+  .gif-list {
+    /*margin-top: 10px*/
   }
 }
 

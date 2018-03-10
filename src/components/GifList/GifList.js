@@ -1,8 +1,8 @@
 import React from "react";
-import GifItem from "./GifItem";
-import ListInfo from "../containers/ListInfo";
-import Spinner from "./Spinner";
-import "../styles/List.scss";
+import GifItem from "../GifItem/GifItem";
+import ListInfo from "../../containers/ListInfo";
+import Spinner from "../Spinner/Spinner";
+import "./GifList.scss";
 
 const GifList = ({ correctAnswers }) => {
   return correctAnswers && correctAnswers.length ? (

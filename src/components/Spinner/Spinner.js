@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Spinner.scss";
+import "./Spinner.scss";
 
 export default () => (
   <div className="spin-wrapper">

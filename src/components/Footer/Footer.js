@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Footer.scss";
-import FooterContainer from "../containers/FooterContainer";
+import "./Footer.scss";
+import FooterContainer from "../../containers/FooterContainer";
 
 const Footer = ({
   score,

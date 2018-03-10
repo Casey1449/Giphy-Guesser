@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/App.scss";
-import "../styles/ListItems.scss";
+import "../../styles/App.scss";
+import "./WordItem.scss";
 import { SortableElement } from "react-sortable-hoc";
 
 const WordItem = SortableElement(

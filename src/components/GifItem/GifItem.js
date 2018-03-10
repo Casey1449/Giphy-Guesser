@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/ListItems.scss";
-import Spinner from "./Spinner";
-import ListInfo from "../containers/ListInfo";
+import "./GifItem.scss";
+import Spinner from "../Spinner/Spinner";
+import ListInfo from "../../containers/ListInfo";
 
 const GifMask = ({ winner, show }) => {
   return (
