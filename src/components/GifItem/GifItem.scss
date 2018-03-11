@@ -8,6 +8,14 @@
   margin: 2px 0px;
 }
 
+.error_msg {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+
 .gif_mask {
   font-size: 3em;
   font-weight: 900;

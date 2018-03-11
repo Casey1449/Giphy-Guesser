@@ -24,10 +24,16 @@ const GifItem = props => {
     tags,
     gifs,
     isFetchingGifs,
-    correctAnswers,
+    gifLoadError,
     index
   } = props;
-
+  if (!isFetchingGifs && gifLoadError) {
+    return (
+      <div className={styles.error_msg}>
+        <p>{gifLoadError} &nbsp; 😭</p>
+      </div>
+    );
+  }
   if (isFetchingGifs || !gifs[index]) {
     return (
       <li className={cx(styles.list_item, styles.gif_item)}>
@@ -55,5 +61,3 @@ const GifItem = props => {
 };
 
 export default ListInfo(GifItem);
-
-// style={{ display: answersSubmitted ? null : 'none' }}

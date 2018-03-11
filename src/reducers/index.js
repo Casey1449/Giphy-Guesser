@@ -37,7 +37,9 @@ const isFetchingGifs = (state = false, action) => {
   switch (action.type) {
     case "REQUESTING_GIFS":
       return true;
-    case "REPLACE_GIFS":
+    case "GIF_LOAD_SUCCESS":
+      return false;
+    case "GIF_LOAD_FAILURE":
       return false;
     default:
       return state;
@@ -61,6 +63,17 @@ const answersSubmitted = (state = false, action) => {
   }
 };
 
+const gifLoadError = (state = "", action) => {
+  switch (action.type) {
+    case "GIF_LOAD_FAILURE":
+      return action.e;
+    case "REQUESTING_GIFS":
+      return "";
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   correctAnswers,
   tags,
@@ -68,6 +81,7 @@ const rootReducer = combineReducers({
   isFetchingGifs,
   gifs,
   score,
+  gifLoadError,
   answersSubmitted
 });
 
