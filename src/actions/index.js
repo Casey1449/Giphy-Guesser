@@ -1,52 +1,49 @@
-import fetch from 'isomorphic-fetch';
+import fetch from "isomorphic-fetch";
+const API_KEY = process.env.REACT_APP_GIPHY_API_KEY;
 
-export const updateScore = score => (
-  { type: 'UPDATE_SCORE', score }
-);
+export const updateScore = score => ({ type: "UPDATE_SCORE", score });
 
-export const submitAnswers = () => (
-  { type: 'SUBMIT' }
-);
+export const submitAnswers = () => ({ type: "SUBMIT" });
 
-export const startNextRound = (newWords, newTags) => (
-  { type: 'START_NEXT_ROUND', newWords, newTags }
-);
+export const startNextRound = (newWords, newTags) => ({
+  type: "START_NEXT_ROUND",
+  newWords,
+  newTags
+});
 
-export const updateTags = (oldIndex, newIndex) => (
-  { type: 'UPDATE_TAGS', oldIndex, newIndex }
-);
+export const updateTags = (oldIndex, newIndex) => ({
+  type: "UPDATE_TAGS",
+  oldIndex,
+  newIndex
+});
 
-export const requestingGifs = () => (
-  { type: 'REQUESTING_GIFS' }
-);
+export const requestingGifs = () => ({ type: "REQUESTING_GIFS" });
 
-export const replaceGifs = (newGifItems) => {
+export const replaceGifs = newGifItems => {
   return {
-    type: 'REPLACE_GIFS',
+    type: "REPLACE_GIFS",
     newGifItems
   };
 };
 
-export const updateChallengeLevel = number => (
-  { type: 'UPDATE_CHALLENGE_LEVEL',
-    number
-  }
-);
+export const updateChallengeLevel = number => ({
+  type: "UPDATE_CHALLENGE_LEVEL",
+  number
+});
 
-const fetchGifByWord = word => (
-  fetch(`http://api.giphy.com/v1/gifs/search?q=${word}&limit=1&&api_key=dc6zaTOxFJmzC`)
+const fetchGifByWord = word =>
+  fetch(
+    `http://api.giphy.com/v1/gifs/search?q=${word}&limit=1&&api_key=${API_KEY}`
+  )
     .then(response => response.json())
     .then(json => ({
       word,
-      desktop: json.data[0].images.fixed_height_small,
-    })
-  )
-);
+      desktop: json.data[0].images.fixed_height_small
+    }));
 
-export const fetchGifs = words => (
-  dispatch => {
-    dispatch(requestingGifs());
-    return Promise.all( words.map(word => fetchGifByWord(word)) )
-      .then(gifs => dispatch(replaceGifs(gifs)));
-  }
-);
+export const fetchGifs = words => dispatch => {
+  dispatch(requestingGifs());
+  return Promise.all(words.map(word => fetchGifByWord(word))).then(gifs =>
+    dispatch(replaceGifs(gifs))
+  );
+};
