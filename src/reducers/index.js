@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import randomWords from "random-words";
 import { evaluateTagPositions, createNewTags } from "../utils.js";
 import { arrayMove } from "react-sortable-hoc";
+import { routerReducer as routing } from "react-router-redux";
 
 // Get array of 4 random words
 const initialWords = randomWords(4);
@@ -75,6 +76,7 @@ const gifLoadError = (state = "", action) => {
 };
 
 const rootReducer = combineReducers({
+  routing,
   correctAnswers,
   tags,
   listLength,

@@ -3,9 +3,11 @@ import React from "react";
 import { render } from "react-dom";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
+import { browserHistory, Router } from "react-router";
+import { syncHistoryWithStore } from "react-router-redux";
 import thunkMiddleware from "redux-thunk";
+import routes from "./routes";
 import rootReducer from "./reducers/index.js";
-import App from "./App";
 import "./index.scss";
 
 const middleware = applyMiddleware(thunkMiddleware);
@@ -20,9 +22,11 @@ let store = createStore(
   )
 );
 
+const history = syncHistoryWithStore(browserHistory, store);
+
 render(
   <Provider store={store}>
-    <App />
+    <Router history={history} routes={routes} />
   </Provider>,
   document.getElementById("root")
 );
