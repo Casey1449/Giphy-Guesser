@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import Header from './components/Header';
-import WordList from './components/WordList';
-import GifList from './components/GifList';
-import Footer from './components/Footer';
-import { connect } from 'react-redux';
-import { fetchGifs, startNextRound } from './actions';
-import randomWords from 'random-words';
-import { createNewTags } from './utils.js';
-import './styles/App.css';
+import React, { Component } from "react";
+import Header from "./components/Header/Header";
+import WordList from "./components/WordList/WordList";
+import GifList from "./components/GifList/GifList";
+import Footer from "./components/Footer/Footer";
+import { connect } from "react-redux";
+import { fetchGifs, startNextRound } from "./actions";
+import randomWords from "random-words";
+import { createNewTags } from "./utils.js";
+import styles from "./App.scss";
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
-  componentWillMount(){
+  componentWillMount() {
     const { dispatch, initialWords } = this.props;
     dispatch(fetchGifs(initialWords));
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.listLength !== this.props.listLength){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.listLength !== this.props.listLength) {
       let newWords = randomWords(nextProps.listLength);
       this.props.dispatch(fetchGifs(newWords));
       this.props.dispatch(startNextRound(newWords, createNewTags(newWords)));
@@ -28,21 +28,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={styles.App}>
         <Header />
-          <div className='game-box'>
-            <WordList axis={'xy'} />
-            <GifList />
-          </div>
+        <div className={styles.game_box}>
+          <WordList axis={"xy"} />
+          <GifList />
+        </div>
         <Footer />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => (
-  { initialWords: state.correctAnswers,
-     listLength: state.listLength }
-);
+const mapStateToProps = state => ({
+  initialWords: state.correctAnswers,
+  listLength: state.listLength
+});
 
 export default connect(mapStateToProps)(App);
