@@ -19,23 +19,10 @@ const GifMask = ({ winner, show }) => {
 };
 
 const GifItem = props => {
-  const {
-    answersSubmitted,
-    tags,
-    gifs,
-    isFetchingGifs,
-    correctAnswers,
-    index
-  } = props;
+  const { answersSubmitted, tags, gifs, index } = props;
 
-  if (isFetchingGifs || !gifs[index]) {
-    return (
-      <li className={cx(styles.list_item, styles.gif_item)}>
-        <Spinner />
-      </li>
-    );
-  } else {
-    const gifUrl = gifs[index].desktop.url;
+  if (gifs.loaded && gifs.results) {
+    const gifUrl = gifs.results[index].desktop.url;
 
     const gifStyle = {
       background: `url(${gifUrl}) no-repeat`,
@@ -52,8 +39,18 @@ const GifItem = props => {
       </li>
     );
   }
+  if (gifs.loaded && gifs.error) {
+    return (
+      <li className={cx(styles.list_item, styles.gif_item)}>
+        <h1>ERROR :(</h1>
+      </li>
+    );
+  }
+  return (
+    <li className={cx(styles.list_item, styles.gif_item)}>
+      <Spinner />
+    </li>
+  );
 };
 
 export default ListInfo(GifItem);
-
-// style={{ display: answersSubmitted ? null : 'none' }}

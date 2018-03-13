@@ -2,10 +2,10 @@ import { connect } from "react-redux";
 import {
   updateScore,
   startNextRound,
-  fetchGifs,
   submitAnswers,
   updateChallengeLevel
 } from "../redux/actions/index.js";
+import { fetchGifs } from "../redux/actions/giphyActions.js";
 import randomWords from "random-words";
 
 const mapStateToProps = state => {
