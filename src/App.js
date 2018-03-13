@@ -7,20 +7,20 @@ import { connect } from "react-redux";
 import { startNextRound } from "./redux/actions/index";
 import { fetchGifs } from "./redux/actions/giphyActions";
 import randomWords from "random-words";
-import { createNewTags } from "./redux/utils.js";
 import styles from "./App.scss";
 
 class App extends Component {
   componentWillMount() {
-    const { dispatch, initialWords } = this.props;
-    dispatch(fetchGifs(initialWords));
+    const initialWords = randomWords(this.props.listLength);
+    this.props.fetchGifs(initialWords);
+    this.props.startNextRound(initialWords);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.listLength !== this.props.listLength) {
-      let newWords = randomWords(nextProps.listLength);
-      this.props.dispatch(fetchGifs(newWords));
-      this.props.dispatch(startNextRound(newWords, createNewTags(newWords)));
+      const newWords = randomWords(nextProps.listLength);
+      this.props.fetchGifs(newWords);
+      this.props.startNextRound(newWords);
     }
   }
 
@@ -38,9 +38,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  initialWords: state.correctAnswers,
-  listLength: state.listLength
-});
-
-export default connect(mapStateToProps)(App);
+export default connect(({ listLength }) => ({ listLength }), {
+  fetchGifs,
+  startNextRound
+})(App);
