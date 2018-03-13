@@ -10,9 +10,6 @@ import { createNewTags } from "./utils.js";
 import styles from "./App.scss";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentWillMount() {
     const { dispatch, initialWords } = this.props;
     dispatch(fetchGifs(initialWords));
