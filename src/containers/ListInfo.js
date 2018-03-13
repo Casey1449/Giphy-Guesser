@@ -1,28 +1,28 @@
-import { connect } from 'react-redux';
-import { updateTags } from '../actions/index.js';
+import { connect } from "react-redux";
+import { updateTags } from "../actions/index.js";
 
-const mapStateToProps = (state) => {
-  const { tags, answersSubmitted, gifs, isFetchingGifs, correctAnswers } = state;
-  return {
-    correctAnswers,
-    tags,
-    answersSubmitted,
-    gifs,
-    isFetchingGifs
-  };
-};
+const mapStateToProps = ({
+  tags,
+  answersSubmitted,
+  gifs,
+  isFetchingGifs,
+  correctAnswers
+}) => ({
+  correctAnswers,
+  tags,
+  answersSubmitted,
+  gifs,
+  isFetchingGifs
+});
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onSortEnd: ({oldIndex, newIndex}) => {
+    onSortEnd: ({ oldIndex, newIndex }) => {
       dispatch(updateTags(oldIndex, newIndex));
     }
   };
 };
 
-const ListInfo = connect(
-  mapStateToProps,
-  mapDispatchToProps
-);
+const ListInfo = connect(mapStateToProps, mapDispatchToProps);
 
 export default ListInfo;
