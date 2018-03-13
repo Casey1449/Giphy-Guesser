@@ -4,9 +4,9 @@ import WordList from "./components/WordList/WordList";
 import GifList from "./components/GifList/GifList";
 import Footer from "./components/Footer/Footer";
 import { connect } from "react-redux";
-import { fetchGifs, startNextRound } from "./actions";
+import { fetchGifs, startNextRound } from "./redux/actions";
 import randomWords from "random-words";
-import { createNewTags } from "./utils.js";
+import { createNewTags } from "./redux/utils.js";
 import styles from "./App.scss";
 
 class App extends Component {

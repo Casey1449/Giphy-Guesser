@@ -5,7 +5,7 @@ import {
   fetchGifs,
   submitAnswers,
   updateChallengeLevel
-} from "../actions/index.js";
+} from "../redux/actions/index.js";
 import randomWords from "random-words";
 
 const mapStateToProps = state => {

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateTags } from "../actions/index.js";
+import { updateTags } from "../redux/actions/index.js";
 
 const mapStateToProps = ({
   tags,
