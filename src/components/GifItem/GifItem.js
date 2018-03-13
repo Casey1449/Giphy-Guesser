@@ -21,7 +21,7 @@ const GifMask = ({ winner, show }) => {
 const GifItem = props => {
   const { answersSubmitted, tags, gifs, index } = props;
 
-  if (gifs.loaded && gifs.results) {
+  if (gifs.loaded && gifs.results[index]) {
     const gifUrl = gifs.results[index].desktop.url;
 
     const gifStyle = {

@@ -9,7 +9,7 @@ import rootReducer from "./redux/reducers/index.js";
 import App from "./App";
 import "./index.scss";
 
-const middleware = applyMiddleware(clientMiddleware);
+const middleware = applyMiddleware(clientMiddleware());
 
 let store = createStore(
   rootReducer,

@@ -33,20 +33,9 @@ const tags = (state = initialTags, action) => {
 const listLength = (state = 4, action) =>
   action.type === "UPDATE_CHALLENGE_LEVEL" ? action.number : state;
 
-// const isFetchingGifs = (state = false, action) => {
-//   switch (action.type) {
-//     case "REQUESTING_GIFS":
-//       return true;
-//     case "REPLACE_GIFS":
-//       return false;
-//     default:
-//       return state;
-//   }
-// };
-
 const gifs = (state = {}, action) => {
   switch (action.type) {
-    case "GIFS_LOAD":
+    case "GIFS_LOAD_REQUEST":
       return {
         loading: true,
         loaded: false
@@ -55,7 +44,7 @@ const gifs = (state = {}, action) => {
       return {
         loading: false,
         loaded: true,
-        results: action.results
+        results: action.result
       };
     case "GIFS_LOAD_FAILURE":
       return {
@@ -67,9 +56,6 @@ const gifs = (state = {}, action) => {
       return state;
   }
 };
-
-// const gifs = (state = [], action) =>
-//   action.type === "REPLACE_GIFS" ? action.newGifItems : state;
 
 const score = (state = 0, action) =>
   action.type === "UPDATE_SCORE" ? state + action.score : state;
