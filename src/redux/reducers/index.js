@@ -49,7 +49,7 @@ const gifs = (state = {}, action) => {
     case "GIFS_LOAD_FAILURE":
       return {
         loading: false,
-        loaded: true,
+        loaded: false,
         error: action.error
       };
     default:

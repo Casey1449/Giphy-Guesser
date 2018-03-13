@@ -18,10 +18,8 @@ const GifMask = ({ winner, show }) => {
   );
 };
 
-const GifItem = props => {
-  const { answersSubmitted, tags, gifs, index } = props;
-
-  if (gifs.loaded && gifs.results[index]) {
+const GifItem = ({ answersSubmitted, tags, gifs, index }) => {
+  if (gifs.loaded) {
     const gifUrl = gifs.results[index].desktop.url;
 
     const gifStyle = {
@@ -31,7 +29,7 @@ const GifItem = props => {
     };
 
     return (
-      <li className={cx(styles.list_item, styles.gif_item)} style={gifStyle}>
+      <li className={styles.list_item} style={gifStyle}>
         <GifMask
           show={answersSubmitted}
           winner={tags[index].isInCorrectPosition}
@@ -39,15 +37,17 @@ const GifItem = props => {
       </li>
     );
   }
-  if (gifs.loaded && gifs.error) {
+
+  if (gifs.error) {
     return (
-      <li className={cx(styles.list_item, styles.gif_item)}>
+      <li className={styles.list_item}>
         <h1>ERROR :(</h1>
       </li>
     );
   }
+
   return (
-    <li className={cx(styles.list_item, styles.gif_item)}>
+    <li className={styles.list_item}>
       <Spinner />
     </li>
   );

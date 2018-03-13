@@ -14,10 +14,7 @@ const fetchGifByWord = word =>
       desktop: json.data[0].images.fixed_height_small
     }));
 
-export const fetchGifs = words => {
-  console.log({ words });
-  return {
-    type: GIFS_LOAD,
-    promise: Promise.all(words.map(word => fetchGifByWord(word)))
-  };
-};
+export const fetchGifs = words => ({
+  type: GIFS_LOAD,
+  promise: Promise.all(words.map(word => fetchGifByWord(word)))
+});
