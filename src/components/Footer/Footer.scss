@@ -49,7 +49,7 @@ footer button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 210px;
+    width: 100%;
   }
 
   .button_widget p {
@@ -65,7 +65,16 @@ footer button {
     justify-content: center;
   }
 
-  .challenge_button {
+  .game_settings {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+  }
+
+  .settings_button {
     margin: auto 0px;
     color: #121212;
     flex: 1;
@@ -83,19 +92,3 @@ footer button {
     max-width: 300px;
   }
 }
-
-/*
-
-//Extra small devices (portrait phones, less than 576px)
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-// Medium devices (tablets, 770 and up)
-@media (min-width: 770px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }*/

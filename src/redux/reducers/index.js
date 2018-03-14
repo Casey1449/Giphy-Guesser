@@ -10,6 +10,9 @@ const correctAnswers = (state = [], action) =>
 const listLength = (state = 4, action) =>
   action.type === "UPDATE_CHALLENGE_LEVEL" ? action.number : state;
 
+const gifRating = (state = "pg", action) =>
+  action.type === "UPDATE_GIF_RATING" ? action.rating : state;
+
 const score = (state = 0, action) =>
   action.type === "UPDATE_SCORE" ? state + action.score : state;
 
@@ -28,6 +31,7 @@ const rootReducer = combineReducers({
   correctAnswers,
   tags,
   listLength,
+  gifRating,
   gifs,
   score,
   answersSubmitted

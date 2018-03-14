@@ -15,8 +15,3 @@ export const updateTags = (oldIndex, newIndex) => ({
   oldIndex,
   newIndex
 });
-
-export const updateChallengeLevel = number => ({
-  type: "UPDATE_CHALLENGE_LEVEL",
-  number
-});

@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Footer.scss";
 import FooterContainer from "../../containers/FooterContainer";
-import ChallengeButton from "./ChallengeButton";
+import SettingsButton from "./SettingsButton";
+import RatingControls from "./RatingControls";
 
 const Footer = ({
   score,
@@ -20,25 +21,28 @@ const Footer = ({
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.button_widget}>
-        <p className={styles.widget_label}>Choose your challenge level</p>
-        <div className={styles.challenge_level}>
-          <ChallengeButton
-            targetLength={3}
-            listLength={listLength}
-            handleClick={handleChallengeUpdate}
-          />
-          <ChallengeButton
-            targetLength={4}
-            listLength={listLength}
-            handleClick={handleChallengeUpdate}
-          />
-          <ChallengeButton
-            targetLength={5}
-            listLength={listLength}
-            handleClick={handleChallengeUpdate}
-          />
+      <div className={styles.game_settings}>
+        <div className={styles.button_widget}>
+          <p className={styles.widget_label}>Choose your challenge level</p>
+          <div className={styles.challenge_level}>
+            <SettingsButton
+              value={3}
+              active={listLength === 3}
+              handleClick={handleChallengeUpdate}
+            />
+            <SettingsButton
+              value={4}
+              active={listLength === 4}
+              handleClick={handleChallengeUpdate}
+            />
+            <SettingsButton
+              value={5}
+              active={listLength === 5}
+              handleClick={handleChallengeUpdate}
+            />
+          </div>
         </div>
+        <RatingControls />
       </div>
       {answersSubmitted ? (
         <button onClick={() => startClick(listLength)}>Next Round ▸▸</button>

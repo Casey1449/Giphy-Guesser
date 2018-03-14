@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import {
   updateScore,
   startNextRound,
-  submitAnswers,
-  updateChallengeLevel
+  submitAnswers
 } from "../redux/actions/index.js";
+import { updateChallengeLevel } from "../redux/actions/settingsActions";
 import { fetchGifs } from "../redux/actions/giphyActions.js";
 import randomWords from "random-words";
 

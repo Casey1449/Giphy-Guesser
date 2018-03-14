@@ -17,7 +17,10 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.listLength !== this.props.listLength) {
+    if (
+      nextProps.listLength !== this.props.listLength ||
+      nextProps.gifRating !== this.props.gifRating
+    ) {
       const newWords = randomWords(nextProps.listLength);
       this.props.fetchGifs(newWords);
       this.props.startNextRound(newWords);
@@ -38,7 +41,10 @@ class App extends Component {
   }
 }
 
-export default connect(({ listLength }) => ({ listLength }), {
-  fetchGifs,
-  startNextRound
-})(App);
+export default connect(
+  ({ listLength, gifRating }) => ({ listLength, gifRating }),
+  {
+    fetchGifs,
+    startNextRound
+  }
+)(App);
