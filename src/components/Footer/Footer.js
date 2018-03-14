@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.scss";
 import FooterContainer from "../../containers/FooterContainer";
-import cx from "classnames";
+import ChallengeButton from "./ChallengeButton";
 
 const Footer = ({
   score,
@@ -23,34 +23,21 @@ const Footer = ({
       <div className={styles.button_widget}>
         <p className={styles.widget_label}>Choose your challenge level</p>
         <div className={styles.challenge_level}>
-          <button
-            className={cx(
-              styles.challenge_button,
-              listLength === 3 && styles.active_true
-            )}
-            onClick={() => handleChallengeUpdate(3)}
-          >
-            3
-          </button>
-          <button
-            className={cx(
-              styles.challenge_button,
-              listLength === 4 && styles.active_true
-            )}
-            onClick={() => handleChallengeUpdate(4)}
-          >
-            4
-          </button>
-          <button
-            id={3}
-            className={cx(
-              styles.challenge_button,
-              listLength === 5 && styles.active_true
-            )}
-            onClick={() => handleChallengeUpdate(5)}
-          >
-            5
-          </button>
+          <ChallengeButton
+            targetLength={3}
+            listLength={listLength}
+            handleClick={handleChallengeUpdate}
+          />
+          <ChallengeButton
+            targetLength={4}
+            listLength={listLength}
+            handleClick={handleChallengeUpdate}
+          />
+          <ChallengeButton
+            targetLength={5}
+            listLength={listLength}
+            handleClick={handleChallengeUpdate}
+          />
         </div>
       </div>
       {answersSubmitted ? (

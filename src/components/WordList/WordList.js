@@ -4,21 +4,19 @@ import { SortableContainer } from "react-sortable-hoc";
 import ListInfo from "../../containers/ListInfo";
 import styles from "./WordList.scss";
 
-const WordList = SortableContainer(
-  ({ tags, answersSubmitted, correctAnswers }) => (
-    <ul className={styles.list}>
-      {tags.map((tag, i) => (
-        <WordItem
-          key={`item-${i}`}
-          value={tag.word}
-          index={i}
-          thisAnswer={correctAnswers[i]}
-          winner={tag.isInCorrectPosition}
-          roundOver={answersSubmitted}
-        />
-      ))}
-    </ul>
-  )
+const WordList = ({ tags, answersSubmitted, correctAnswers }) => (
+  <ul className={styles.list}>
+    {tags.map((tag, index) => (
+      <WordItem
+        key={`item-${index}`}
+        value={tag.word}
+        index={index}
+        thisAnswer={correctAnswers[index]}
+        winner={tag.isInCorrectPosition}
+        roundOver={answersSubmitted}
+      />
+    ))}
+  </ul>
 );
 
-export default ListInfo(WordList);
+export default ListInfo(SortableContainer(WordList));

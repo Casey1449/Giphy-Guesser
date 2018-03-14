@@ -9,6 +9,11 @@
   padding-left: 15px;
   justify-content: space-around;
   flex: 2;
+  // ugly, but needed to override the 'sortable' lib's behavior
+  pointer-events: auto !important;
+  &:active {
+    cursor: -webkit-grabbing;
+  }
 }
 
 @media (min-width: 850px) {
@@ -18,6 +23,7 @@
     align-items: stretch;
     flex: 1 1 auto;
     padding-bottom: 10px;
+    max-height: 130px;
   }
 }
 

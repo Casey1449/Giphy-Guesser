@@ -13,6 +13,8 @@
 .word_arrow {
   font-weight: 700;
   display: flex;
+  padding-bottom: 8px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -22,46 +24,42 @@
   background-repeat: no-repeat;
   background-size: 100% 60%;
   background-position: center;
+  &:hover {
+    cursor: -webkit-grab;
+  }
 }
 
-.word_arrow p {
-  margin-left: 10px;
-  margin-right: 18px;
-  font-size: 4vw;
-  margin-bottom: 6px;
+.answer_text {
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  &.incorrect {
+    color: #f66;
+    text-decoration: line-through;
+  }
 }
 
 @media (min-width: 576px) {
-  .word_arrow p {
-    font-size: 24px;
-  }
-
-  .word_arrow .answer_arrow {
-    font-size: 18px;
+  .answer_text {
+    font-size: 22px;
   }
 }
 
 @media (min-width: 850px) {
-  .list_item {
-    margin: 0px 3px;
-  }
-
   .word_item {
     justify-content: center;
     margin-bottom: 0;
-    margin-top: 10px;
   }
 
   .word_arrow {
+    padding-bottom: 16px;
     width: 80%;
     box-sizing: border-box;
     background: url(../../styles/images/downpointer.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-  }
-
-  .word_arrow p {
-    margin: 0px;
-    margin-bottom: 15%;
   }
 }
