@@ -5,6 +5,7 @@ header {
 @media (min-width: 576px) {
   header {
     display: flex;
+    position: relative;
     color: white;
     flex-direction: column;
     background-color: #121212;

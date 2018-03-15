@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import tags from "./tags";
 import gifs from "./gifs";
+import auth from "./auth";
 
 // Reducers:
 
@@ -27,6 +28,7 @@ const answersSubmitted = (state = false, action) => {
 const rootReducer = combineReducers({
   correctAnswers,
   tags,
+  auth,
   listLength,
   gifs,
   score,

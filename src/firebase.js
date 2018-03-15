@@ -1,5 +1,4 @@
 import firebase from "firebase";
-
 const firebaseKey = process.env.REACT_APP_FIREBASE_KEY;
 
 const config = {
