@@ -7,7 +7,7 @@ import "es6-promise";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
-import rootReducer from "./reducers/index.js";
+import rootReducer from "./redux/reducers/index.js";
 import "./index.scss";
 
 const middleware = applyMiddleware(thunkMiddleware);

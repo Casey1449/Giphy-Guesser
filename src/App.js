@@ -4,25 +4,27 @@ import WordList from "./components/WordList/WordList";
 import GifList from "./components/GifList/GifList";
 import Footer from "./components/Footer/Footer";
 import { connect } from "react-redux";
-import { fetchGifs, startNextRound } from "./actions";
+import { startNextRound } from "./redux/actions/index";
+import { fetchGifs } from "./redux/actions/giphyActions";
 import randomWords from "random-words";
-import { createNewTags } from "./utils.js";
 import styles from "./App.scss";
+import GameOverModal from "./components/GameOverModal/GameOverModal";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentWillMount() {
-    const { dispatch, initialWords } = this.props;
-    dispatch(fetchGifs(initialWords));
+    const initialWords = randomWords(this.props.listLength);
+    this.props.fetchGifs(initialWords);
+    this.props.startNextRound(initialWords);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.listLength !== this.props.listLength) {
-      let newWords = randomWords(nextProps.listLength);
-      this.props.dispatch(fetchGifs(newWords));
-      this.props.dispatch(startNextRound(newWords, createNewTags(newWords)));
+    if (
+      nextProps.listLength !== this.props.listLength ||
+      nextProps.gifRating !== this.props.gifRating
+    ) {
+      const newWords = randomWords(nextProps.listLength);
+      this.props.fetchGifs(newWords);
+      this.props.startNextRound(newWords);
     }
   }
 
@@ -33,6 +35,7 @@ class App extends Component {
         <div className={styles.game_box}>
           <WordList axis={"xy"} />
           <GifList />
+          <GameOverModal />
         </div>
         <Footer />
       </div>
@@ -40,9 +43,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  initialWords: state.correctAnswers,
-  listLength: state.listLength
-});
-
-export default connect(mapStateToProps)(App);
+export default connect(
+  ({ listLength, gifRating }) => ({ listLength, gifRating }),
+  {
+    fetchGifs,
+    startNextRound
+  }
+)(App);

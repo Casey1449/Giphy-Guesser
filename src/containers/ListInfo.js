@@ -1,18 +1,11 @@
 import { connect } from "react-redux";
-import { updateTags } from "../actions/index.js";
+import { updateTags } from "../redux/actions/index.js";
 
-const mapStateToProps = ({
-  tags,
-  answersSubmitted,
-  gifs,
-  isFetchingGifs,
-  correctAnswers
-}) => ({
+const mapStateToProps = ({ tags, gameplay, gifs, correctAnswers }) => ({
   correctAnswers,
   tags,
-  answersSubmitted,
-  gifs,
-  isFetchingGifs
+  gameplay,
+  gifs
 });
 
 const mapDispatchToProps = dispatch => {

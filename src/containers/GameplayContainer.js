@@ -2,24 +2,31 @@ import { connect } from "react-redux";
 import {
   updateScore,
   startNextRound,
-  fetchGifs,
   submitAnswers,
-  updateChallengeLevel
-} from "../actions/index.js";
+  startNewGame
+} from "../redux/actions/index.js";
+import { updateChallengeLevel } from "../redux/actions/settingsActions";
+import { fetchGifs } from "../redux/actions/giphyActions.js";
 import randomWords from "random-words";
 
 const mapStateToProps = state => {
-  const { score, tags, answersSubmitted, listLength } = state;
+  const { score, tags, gameplay, listLength } = state;
   return {
     score,
     tags,
-    answersSubmitted,
+    gameplay,
     listLength
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    newGameClick: number => {
+      dispatch(startNewGame());
+      let newWords = randomWords(number);
+      dispatch(fetchGifs(newWords));
+      dispatch(startNextRound(newWords));
+    },
     startClick: number => {
       let newWords = randomWords(number);
       dispatch(fetchGifs(newWords));
@@ -35,6 +42,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const FooterContainer = connect(mapStateToProps, mapDispatchToProps);
+const GameplayContainer = connect(mapStateToProps, mapDispatchToProps);
 
-export default FooterContainer;
+export default GameplayContainer;

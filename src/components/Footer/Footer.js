@@ -1,63 +1,86 @@
 import React from "react";
 import styles from "./Footer.scss";
-import FooterContainer from "../../containers/FooterContainer";
-import cx from "classnames";
+import GameplayContainer from "../../containers/GameplayContainer";
+import SettingsButton from "./SettingsButton";
+import RatingControls from "./RatingControls";
 
-const Footer = ({
-  score,
-  tags,
-  answersSubmitted,
+const SubmitButton = ({
+  gameplay,
   startClick,
+  listLength,
   submitClick,
-  newChallengeClick,
-  listLength
+  newGameClick,
+  tags
 }) => {
   const tallyScore = () => tags.filter(t => t.isInCorrectPosition).length * 25;
 
+  if (gameplay.isActive && gameplay.answersSubmitted) {
+    return (
+      <button onClick={() => startClick(listLength)}>Next Round ▸▸</button>
+    );
+  }
+
+  if (!gameplay.isActive) {
+    return (
+      <button onClick={() => newGameClick(listLength)}>Play Again?</button>
+    );
+  }
+
+  return <button onClick={() => submitClick(tallyScore())}>Submit!</button>;
+};
+
+const Footer = ({
+  tags,
+  gameplay,
+  score,
+  startClick,
+  submitClick,
+  newGameClick,
+  newChallengeClick,
+  listLength
+}) => {
   const handleChallengeUpdate = num => {
     newChallengeClick(num);
   };
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.button_widget}>
-        <p className={styles.widget_label}>Choose your challenge level</p>
-        <div className={styles.challenge_level}>
-          <button
-            className={cx(
-              styles.challenge_button,
-              listLength === 3 && styles.active_true
-            )}
-            onClick={() => handleChallengeUpdate(3)}
-          >
-            3
-          </button>
-          <button
-            className={cx(
-              styles.challenge_button,
-              listLength === 4 && styles.active_true
-            )}
-            onClick={() => handleChallengeUpdate(4)}
-          >
-            4
-          </button>
-          <button
-            id={3}
-            className={cx(
-              styles.challenge_button,
-              listLength === 5 && styles.active_true
-            )}
-            onClick={() => handleChallengeUpdate(5)}
-          >
-            5
-          </button>
+      <div className={styles.game_settings}>
+        <div className={styles.button_widget}>
+          <p className={styles.widget_label}>Choose your challenge level</p>
+          <div className={styles.challenge_level}>
+            <SettingsButton
+              disabled={gameplay.isActive}
+              value={3}
+              active={listLength === 3}
+              handleClick={handleChallengeUpdate}
+            />
+            <SettingsButton
+              disabled={gameplay.isActive}
+              value={4}
+              active={listLength === 4}
+              handleClick={handleChallengeUpdate}
+            />
+            <SettingsButton
+              disabled={gameplay.isActive}
+              value={5}
+              active={listLength === 5}
+              handleClick={handleChallengeUpdate}
+            />
+          </div>
         </div>
+        <RatingControls disabled={gameplay.isActive} />
       </div>
-      {answersSubmitted ? (
-        <button onClick={() => startClick(listLength)}>Next Round ▸▸</button>
-      ) : (
-        <button onClick={() => submitClick(tallyScore())}>Submit!</button>
-      )}
+      <SubmitButton
+        {...{
+          gameplay,
+          newGameClick,
+          startClick,
+          listLength,
+          submitClick,
+          tags
+        }}
+      />
       <div className={styles.score}>
         <h1 key={"score-key"}>{score || 0}</h1>
       </div>
@@ -65,4 +88,4 @@ const Footer = ({
   );
 };
 
-export default FooterContainer(Footer);
+export default GameplayContainer(Footer);
