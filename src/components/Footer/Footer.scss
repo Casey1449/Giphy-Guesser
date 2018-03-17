@@ -81,6 +81,12 @@ footer button {
     background: none;
     background-image: none;
     background-color: #f66;
+    &:disabled {
+      opacity: 0.5;
+      &:hover {
+        cursor: default;
+      }
+    }
   }
 
   .active_true {

@@ -8,6 +8,7 @@ import { startNextRound } from "./redux/actions/index";
 import { fetchGifs } from "./redux/actions/giphyActions";
 import randomWords from "random-words";
 import styles from "./App.scss";
+import GameOverModal from "./components/GameOverModal/GameOverModal";
 
 class App extends Component {
   componentWillMount() {
@@ -34,6 +35,7 @@ class App extends Component {
         <div className={styles.game_box}>
           <WordList axis={"xy"} />
           <GifList />
+          <GameOverModal />
         </div>
         <Footer />
       </div>

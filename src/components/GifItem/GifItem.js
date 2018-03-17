@@ -18,7 +18,7 @@ const GifMask = ({ winner, show }) => {
   );
 };
 
-const GifItem = ({ answersSubmitted, tags, gifs, index }) => {
+const GifItem = ({ gameplay, tags, gifs, index }) => {
   if (gifs.loaded) {
     const gifUrl = gifs.results[index].desktop.url;
 
@@ -31,7 +31,7 @@ const GifItem = ({ answersSubmitted, tags, gifs, index }) => {
     return (
       <li className={styles.list_item} style={gifStyle}>
         <GifMask
-          show={answersSubmitted}
+          show={gameplay.answersSubmitted}
           winner={tags[index].isInCorrectPosition}
         />
       </li>

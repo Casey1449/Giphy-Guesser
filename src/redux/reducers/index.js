@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import tags from "./tags";
 import gifs from "./gifs";
+import gameplay from "./gameplay";
 
 // Reducers:
 
@@ -13,15 +14,12 @@ const listLength = (state = 4, action) =>
 const gifRating = (state = "pg", action) =>
   action.type === "UPDATE_GIF_RATING" ? action.rating : state;
 
-const score = (state = 0, action) =>
-  action.type === "UPDATE_SCORE" ? state + action.score : state;
-
-const answersSubmitted = (state = false, action) => {
+const score = (state = 0, action) => {
   switch (action.type) {
-    case "SUBMIT":
-      return (state = true);
-    case "START_NEXT_ROUND":
-      return (state = false);
+    case "UPDATE_SCORE":
+      return state + action.score;
+    case "START_NEW_GAME":
+      return 0;
     default:
       return state;
   }
@@ -33,8 +31,8 @@ const rootReducer = combineReducers({
   listLength,
   gifRating,
   gifs,
-  score,
-  answersSubmitted
+  gameplay,
+  score
 });
 
 export default rootReducer;

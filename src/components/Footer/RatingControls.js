@@ -1,10 +1,9 @@
-import { React, PropTypes } from "react";
-import cx from "classnames";
+import React from "react";
 import styles from "./Footer.scss";
 import SettingsButton from "./SettingsButton";
 import RatingControlsContainer from "../../containers/RatingControlsContainer";
 
-const RatingControls = ({ gifRating, updateGifRating }) => {
+const RatingControls = ({ gifRating, updateGifRating, disabled }) => {
   const ratings = ["y", "g", "pg", "pg-13", "r"];
   return (
     <div className={styles.button_widget}>
@@ -12,6 +11,8 @@ const RatingControls = ({ gifRating, updateGifRating }) => {
       <div className={styles.challenge_level}>
         {ratings.map(rating => (
           <SettingsButton
+            disabled={disabled}
+            key={rating}
             value={rating}
             active={gifRating === rating}
             handleClick={updateGifRating}
@@ -24,9 +25,4 @@ const RatingControls = ({ gifRating, updateGifRating }) => {
   );
 };
 
-RatingControls.propTypes = {
-  gifRating: PropTypes.string.isRequired,
-  updateGifRating: PropTypes.function.isRequired
-};
-// export default RatingControls;
 export default RatingControlsContainer(RatingControls);
