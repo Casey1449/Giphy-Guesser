@@ -42,6 +42,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const FooterContainer = connect(mapStateToProps, mapDispatchToProps);
+const GameplayContainer = connect(mapStateToProps, mapDispatchToProps);
 
-export default FooterContainer;
+export default GameplayContainer;

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./GameOverModal.scss";
 import cx from "classnames";
-import FooterContainer from "../../containers/FooterContainer";
+import GameplayContainer from "../../containers/GameplayContainer";
 
 const GameOverModal = ({ gameplay, score }) => {
   return (
@@ -15,4 +15,4 @@ const GameOverModal = ({ gameplay, score }) => {
   );
 };
 
-export default FooterContainer(GameOverModal);
+export default GameplayContainer(GameOverModal);

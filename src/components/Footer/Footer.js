@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Footer.scss";
-import FooterContainer from "../../containers/FooterContainer";
+import GameplayContainer from "../../containers/GameplayContainer";
 import SettingsButton from "./SettingsButton";
 import RatingControls from "./RatingControls";
 
@@ -88,4 +88,4 @@ const Footer = ({
   );
 };
 
-export default FooterContainer(Footer);
+export default GameplayContainer(Footer);

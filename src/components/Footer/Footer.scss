@@ -84,7 +84,7 @@ footer button {
     &:disabled {
       opacity: 0.5;
       &:hover {
-        cursor: default;
+        cursor: not-allowed;
       }
     }
   }

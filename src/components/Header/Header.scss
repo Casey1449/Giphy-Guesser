@@ -21,6 +21,14 @@ header {
     margin-top: auto;
   }
 
+  .round_countdown {
+    display: flex;
+  }
+
+  .last_round {
+    color: #f66;
+  }
+
   .header_stripe {
     height: 4px;
     width: 100%;

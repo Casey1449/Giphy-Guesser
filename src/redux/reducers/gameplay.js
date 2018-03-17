@@ -12,6 +12,7 @@ const gameplay = (state = gameplayConfig, action) => {
       return {
         ...state,
         isActive: !isGameOver,
+        currentRound: isGameOver ? 4 : state.currentRound,
         answersSubmitted: true
       };
     case "START_NEXT_ROUND":
